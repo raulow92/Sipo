@@ -1,15 +1,11 @@
-import PublicHeader from "@/components/header/PublicHeader";
-import WelcomeMain from "@/components/main/WelcomeMain";
-import SignUpMain from "@/components/main/SignUpMain";
-import LogInMain from "@/components/main/LogInMain";
+import PublicHeader from "@/components/headers/PublicHeader";
+import PublicRouter from "@/components/router/PublicRouter";
 
 const App = () => {
     return (
         <>
           <PublicHeader />
-          <LogInMain />
-          <SignUpMain />
-          {/* <WelcomeMain /> */}
+          <PublicRouter />
         </>
     );
 };

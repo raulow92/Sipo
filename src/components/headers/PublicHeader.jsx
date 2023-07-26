@@ -2,6 +2,7 @@ import LogoSipo from "@/assets/img/logo.svg";
 import MenuIcon from "@/components/icons/MenuIcon";
 import CloseIcon from "@/components/icons/CloseIcon";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const PublicHeader = () => {
     const [navClass, setNavClass] = useState("hidden md:static md:flex md:pr-0 md:max-w-fit md:bg-transparent md:flex-row md:gap-8 md:pt-0 md:items-center md:font-medium md:text-base");
@@ -23,14 +24,14 @@ const PublicHeader = () => {
                 <button className=" md:hidden self-end mt-10 mb-20" onClick={handleCloseMenu}>
                     <CloseIcon />
                 </button>
-                <a href="#" className="md:font-normal">Crear cuenta</a>
-                <a href="#" className="md:font-normal">Iniciar sesión</a>
-                <a
-                    href="#"
+                <Link to="/signup" className="md:font-normal">Crear cuenta</Link>
+                <Link to="/login" className="md:font-normal">Iniciar sesión</Link>
+                <Link
+                    to="/"
                     className="md:bg-sky-400 md:text-white md:px-5 md:py-3 md:rounded-xl"
                 >
                     Publicar venta
-                </a>
+                </Link>
             </nav>
         </header>
     );
