@@ -1,12 +1,13 @@
-import './App.css'
+import PublicHeader from "@/components/header/PublicHeader";
+import WelcomeMain from "@/components/main/WelcomeMain";
 
 const App = () => {
+    return (
+        <>
+          <PublicHeader />
+          <WelcomeMain />
+        </>
+    );
+};
 
-  return (
-    <>
-      <h1 className="text-3xl underline">Sipo.cl</h1>
-    </>
-  )
-}
-
-export default App
+export default App;
