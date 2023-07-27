@@ -13,11 +13,11 @@ const LogInMain = () => {
                 <form className="bg-white p-8 w-auto text-lg rounded-xl md:drop-shadow-md">
                     <div className="flex flex-col">
                         <input type="email" id="email" placeholder="Correo electrónico" className="border border-gray-300 rounded-xl p-4 pl-6" />
-                        <input type="password" id="password" placeholder="Contraseña nueva" className="border border-gray-300 rounded-xl p-4 pl-6 mt-5" />
-                        <input type="submit" value="Iniciar sesión" className="hover:cursor-pointer bg-sky-400 font-medium rounded-xl text-white p-4 mt-5"></input>
-                        <p className="text-center text-sky-400 font-medium text-base mt-5 hover:cursor-pointer">¿Has olvidado la contraseña?</p>
+                        <input type="password" id="password" placeholder="Contraseña" className="border border-gray-300 rounded-xl p-4 pl-6 mt-5" />
+                        <input type="submit" value="Iniciar sesión" className="hover:cursor-pointer bg-sky-400 hover:bg-sky-500 font-medium rounded-xl text-white p-4 mt-5"></input>
+                        <p className="text-center text-sky-400 hover:text-sky-500 font-medium text-base mt-5 hover:cursor-pointer">¿Has olvidado la contraseña?</p>
                         <div className="border-solid border-t-2 border-gray-300 mt-5"></div>
-                        <button className="bg-green-400 self-center px-6 font-medium rounded-xl text-white p-4 mt-8">Crear cuenta nueva</button>
+                        <button className="bg-green-400 hover:bg-green-500 self-center px-6 font-medium rounded-xl text-white p-4 mt-8">Crear cuenta nueva</button>
                     </div>
                 </form>
             </section>

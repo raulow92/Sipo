@@ -15,8 +15,8 @@ const SignUpMain = () => {
                         <input type="text" id="name" placeholder="Nombre" className="border border-gray-300 rounded-xl p-4 pl-6" />
                         <input type="text" id="last-name" placeholder="Apellidos" className="border border-gray-300 rounded-xl p-4 pl-6 mt-5" />
                         <input type="email" id="email" placeholder="Correo electrónico" className="border border-gray-300 rounded-xl p-4 pl-6 mt-5" />
-                        <input type="password" id="password" placeholder="Contraseña nueva" className="border border-gray-300 rounded-xl p-4 pl-6 mt-5" />
-                        <input type="submit" value="Regístrate" className="hover:cursor-pointer bg-green-400 font-medium rounded-xl text-white p-4 mt-5"></input>
+                        <input type="password" id="password" placeholder="Contraseña" className="border border-gray-300 rounded-xl p-4 pl-6 mt-5" />
+                        <input type="submit" value="Regístrate" className="hover:cursor-pointer bg-green-400 hover:bg-green-600 font-medium rounded-xl text-white p-4 mt-5"></input>
                     </div>
                 </form>
             </section>
