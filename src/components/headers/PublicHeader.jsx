@@ -16,7 +16,7 @@ const PublicHeader = () => {
 
     return (
         <header className="flex mx-auto py-4 px-6 container items-center justify-between">
-            <img src={LogoSipo} alt="Logo Sipo" className="w-32 md:w-40" />
+            <Link to="/"><img src={LogoSipo} alt="Logo Sipo" className="w-32 md:w-40" /></Link>
             <button className="md:hidden" onClick={handleOpenMenu}>
                 <MenuIcon />
             </button>
@@ -27,7 +27,7 @@ const PublicHeader = () => {
                 <Link to="/signup" className="md:font-normal">Crear cuenta</Link>
                 <Link to="/login" className="md:font-normal">Iniciar sesión</Link>
                 <Link
-                    to="/"
+                    to="/login"
                     className="md:bg-sky-400 md:text-white md:px-5 md:py-3 md:rounded-xl"
                 >
                     Publicar venta
