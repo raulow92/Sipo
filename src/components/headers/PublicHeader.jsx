@@ -24,11 +24,12 @@ const PublicHeader = () => {
                 <button className=" md:hidden self-end mt-10 mb-20" onClick={handleCloseMenu}>
                     <CloseIcon />
                 </button>
-                <Link to="/signup" className="md:font-normal hover:text-sky-400">Crear cuenta</Link>
-                <Link to="/login" className="md:font-normal hover:text-sky-400">Iniciar sesión</Link>
+                <Link to="/signup" className="md:font-normal hover:text-sky-400" onClick={handleCloseMenu}>Crear cuenta</Link>
+                <Link to="/login" className="md:font-normal hover:text-sky-400" onClick={handleCloseMenu}>Iniciar sesión</Link>
                 <Link
                     to="/login"
-                    className="md:bg-sky-400 hover:bg-sky-500 md:text-white md:px-5 md:py-3 md:rounded-xl"
+                    className="md:bg-sky-400 md:hover:bg-sky-500 md:text-white md:px-5 md:py-3 md:rounded-xl"
+                    onClick={handleCloseMenu}
                 >
                     Publicar venta
                 </Link>
