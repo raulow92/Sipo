@@ -23,7 +23,7 @@ const Tienda = () => {
                 </div>
                 <div className="relative flex items-center mr-4 mt-3 w-full xl:mt-0 xl:w-1/5">
                     <CategoriesIcon className="absolute w-5 ml-5 pointer-events-none"/>
-                    <select name="category" id="category" className="appearance-none border border-gray-300 rounded-xl pl-14 text-gray-600 h-12 pr-20 w-full">
+                    <select name="category" id="category" className="appearance-none border border-gray-300 rounded-xl pl-14 text-gray-600 h-12 pr-20 w-full bg-white">
                         <option value="" defaultChecked hidden>Categoría</option>
                         <option value="tecnologia">Tecnología</option>
                         <option value="tecnologia">Hogar</option>
@@ -37,7 +37,7 @@ const Tienda = () => {
                 </div>
                 <div className="relative flex items-center mr-4 mt-3 w-full xl:mt-0 xl:w-3/12">
                     <LocationIcon className="absolute w-4 ml-5 pointer-events-none"/>
-                    <select onChange={handleRegionChange} name="region" id="region" className="appearance-none border border-gray-300 rounded-xl pl-14 text-gray-600 h-12 pr-20 w-full">
+                    <select onChange={handleRegionChange} name="region" id="region" className="appearance-none border border-gray-300 rounded-xl pl-14 text-gray-600 h-12 pr-20 w-full bg-white">
                         <option value="chile">Todo Chile</option>
                         <option value="metropolitana">Metropolitana</option>
                         <option value="arica">Arica y Parinacota</option>
