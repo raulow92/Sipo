@@ -3,6 +3,7 @@ import SearchIcon from "@/components/icons/SearchIcon"
 import CategoriesIcon from "@/components/icons/CategoriesIcon"
 import DownIcon from "@/components/icons/DownIcon"
 import LocationIcon from "@/components/icons/LocationIcon"
+import ProductCard from "@/components/products/ProductCard"
 
 const Tienda = () => {
     const [region, setRegion] = useState('Todo Chile')
@@ -65,11 +66,18 @@ const Tienda = () => {
                     </button>
                 </div>
             </div>
-            <div className="mx-16 mt-4 font-medium text-lg">
+            <div className="mx-16 mt-8 font-medium text-lg">
                 <p>Mostrando: {region}</p>
-
             </div>
-        
+            <div className="mx-6 lg:mx-16 mt-6 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <ProductCard />
+                <ProductCard filled={true}/>
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+            </div>
         </div>
     )
 }

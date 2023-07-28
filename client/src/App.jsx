@@ -4,12 +4,12 @@ import PublicRouter from "@/components/router/PublicRouter";
 import PrivateRouter from "@/components/router/PrivateRouter";
 
 const App = () => {
-  const login = true;
-  
-  return (
+    const login = true;
+
+    return (
         <>
-            { login ? <PrivateHeader /> : <PublicHeader /> }
-            { login ? <PrivateRouter /> : <PublicRouter /> }
+            {login ? <PrivateHeader /> : <PublicHeader />}
+            {login ? <PrivateRouter /> : <PublicRouter />}
         </>
     );
 };
