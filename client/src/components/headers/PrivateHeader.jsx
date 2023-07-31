@@ -27,7 +27,7 @@ const PrivateHeader = () => {
                 <Link to="/" className="md:font-normal">Tienda</Link>
                 <Link to="/" className="md:font-normal">Dashboard</Link>
                 <Link
-                    to="/"
+                    to="/vender"
                     className="md:bg-sky-400 md:text-white md:px-5 md:py-3 md:rounded-xl md:hover:bg-sky-500"
                 >
                     Publicar venta

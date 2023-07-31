@@ -49,7 +49,7 @@ const ProductDetail = () => {
     const { product_id, image, titulo, descripcion, precio } = product
 
     return (
-        <div className="container mx-auto mt-6 px-16">
+        <div className="container mx-auto mt-6 px-6 lg:px-16">
             <h1 className="text-2xl font-medium mb-4">{titulo}</h1>
             <div className="grid lg:grid-cols-2 gap-8">
                 <div className="">

@@ -4,7 +4,7 @@ import PublicRouter from "@/components/router/PublicRouter";
 import PrivateRouter from "@/components/router/PrivateRouter";
 
 const App = () => {
-    const login = false;
+    const login = true;
 
     return (
         <>

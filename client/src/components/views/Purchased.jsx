@@ -43,7 +43,7 @@ const Purchased = () => {
     const { titulo } = product
 
     return (
-        <div className="p-8 mx-16">
+        <div className="container p-8 mx-auto">
             <div className="bg-white rounded-lg shadow-md p-8 text-center w-full">
                 <h2 className="font-bold text-2xl text-sky-400">¡Felicidades! Compraste el artículo:</h2>
                 <p className="text-xl font-medium my-5">{titulo}</p>
