@@ -3,7 +3,7 @@ import SearchIcon from "@/components/icons/SearchIcon";
 import CategoriesIcon from "@/components/icons/CategoriesIcon";
 import DownIcon from "@/components/icons/DownIcon";
 import LocationIcon from "@/components/icons/LocationIcon";
-import ProductCard from "@/components/products/ProductCard";
+import ProductCard from "@/components/cards/ProductCard";
 
 const Tienda = () => {
   const url = "http://localhost:3000/tienda";
