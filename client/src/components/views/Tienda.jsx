@@ -130,16 +130,17 @@ const Tienda = () => {
       {loaded ? (
 
         <div className="mx-6 lg:mx-16 mt-6 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                            {products.map((product) => (
+                    {products.map(({ product_id, image, titulo, descripcion, precio }) => (
                     <ProductCard
-                      key={product.product_id + "A"}
-                      img={product.image}
-                      titulo={product.titulo}
-                      descripcion={product.descripcion}
-                      precio={product.precio}
+                      id={product_id}
+                      key={product_id + "A"}
+                      img={image}
+                      titulo={titulo}
+                      descripcion={descripcion}
+                      precio={precio}
+                      filled={false}
                     />
                   ))}
-          <ProductCard filled={true} />
         </div>
       ) : (
         <div className="alert alert-secondary">

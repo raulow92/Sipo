@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import Tienda from "@/components/views/Tienda";
 import SignUpMain from "@/components/views/SignUpMain";
 import LogInMain from "@/components/views/LogInMain";
+import ProductDetail from "@/components/views/ProductDetail";
+import Purchased from "@/components/views/Purchased";
 
 const PrivateRouter = () => {
     return (
@@ -10,6 +12,8 @@ const PrivateRouter = () => {
                 <Route path="/" element={<Tienda />} />
                 <Route path="/" element={<SignUpMain />} />
                 <Route path="/" element={<LogInMain />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/purchased/:id" element={<Purchased />} />
             </Routes>
         </>
     );
