@@ -1,13 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import SearchIcon from "@/components/icons/SearchIcon";
 import CategoriesIcon from "@/components/icons/CategoriesIcon";
 import DownIcon from "@/components/icons/DownIcon";
 import LocationIcon from "@/components/icons/LocationIcon";
 import ProductCard from "@/components/cards/ProductCard";
+import Context from "../../Context";
 
 const Tienda = () => {
+  const { setUsuario: setUsuarioGlobal } = useContext(Context)
+  const [usuario, setUsuarioLocal] = useState({});
+
   const url = "http://localhost:3000/tienda";
-  const url2 = "http://localhost:3000/tienda/filters";
+  const url2 = "http://localhost:3000/users";
   const [region, setRegion] = useState("Todo Chile");
   const [selectedRegion, setSelectedRegion] = useState("");
   const [products, setProducts] = useState([]);
@@ -26,12 +30,15 @@ const Tienda = () => {
     }
   };
 
-  const getFilteredData = async () => {
+  const getUserData = async () => {
+    const token = localStorage.getItem("token");
     try {
-      const response = await fetch(url2);
-      let productList = await response.json();
-      setProducts(productList);
-      console.log(productList);
+      const {data} = await fetch(url2, {
+        headers: { Authorization: "Bearer" + token },
+      });
+      setUsuarioGlobal(data);
+      setUsuarioLocal(data);
+      console.log(data)
     } catch (error) {
       console.log(error);
     } finally {
@@ -41,6 +48,10 @@ const Tienda = () => {
 
   useEffect(() => {
     getData();
+  }, []);
+
+  useEffect(() => {
+    getUserData();
   }, []);
 
   const handleBuscar = () => setRegion(selectedRegion);
@@ -119,7 +130,7 @@ const Tienda = () => {
             color="white"
             className="absolute w-5 ml-6 pointer-events-none"
           />
-          <button onClick={getFilteredData} className="bg-sky-400 hover:bg-sky-500 text-white font-medium px-5 py-3 rounded-xl pl-14 pr-8 w-full">
+          <button className="bg-sky-400 hover:bg-sky-500 text-white font-medium px-5 py-3 rounded-xl pl-14 pr-8 w-full">
             Buscar
           </button>
         </div>
