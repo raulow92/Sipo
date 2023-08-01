@@ -30,9 +30,10 @@ const LogInMain = () => {
       alert("Usuario identificado con éxito 😀");
       localStorage.setItem("token", token);
       console.log(localStorage.getItem("token"))
-      setUsuario();
-      loginOK;
+      setUsuario(usuario);
+      loginOK();
     } catch (error) {
+      alert(error)
       console.log(error);
     }
   };
@@ -51,7 +52,7 @@ const LogInMain = () => {
         </h2>
       </section>
       <section className="xl:mx-full xl:ml-12 2xl:ml-24 2xl:mr-12">
-        <form className="bg-white p-8 w-auto text-lg rounded-xl md:drop-shadow-md">
+        <form className="bg-white p-8 w-auto text-lg rounded-xl md:drop-shadow-md" onSubmit={(e) => e.preventDefault()}>
           <div className="flex flex-col">
             <input
               value={usuario.email}
