@@ -14,13 +14,16 @@ const verifyCredentials = async (email, password) => {
   const values = [email];
   const consulta = "SELECT * FROM users WHERE email = $1";
   const {
-    rows: [usuario],
+    rows: [user],
     rowCount,
   } = await pool.query(consulta, values);
-  const { password: passwordEncriptada } = usuario;
+  console.log(user)
+  if (!rowCount)
+    throw { code: 401, message: "Email no encontrado" };
+  const { password: passwordEncriptada } = user;
   const passwordCorrecta = bcrypt.compareSync(password, passwordEncriptada);
-  if (!passwordCorrecta || !rowCount)
-    throw { code: 401, message: "Email o contraseña incorrecta" };
+  if (!passwordCorrecta)
+    throw { code: 401, message: "Contraseña incorrecta" };
 };
 
 const userRegister = async (user) => {
@@ -45,8 +48,8 @@ const updateUser = async (user) => {
   let { user_id, nombre, apellidos, email, password, image } = user;
   const passwordEncriptada = bcrypt.hashSync(password);
   password = passwordEncriptada;
-  const values = [ nombre, apellidos, email, passwordEncriptada, user_id];
-  const consulta = "UPDATE users SET nombre = $1, apellidos = $2, email = $3, password = $4, image = $5 WHERE user_id = $5";
+  const values = [ nombre, apellidos, email, passwordEncriptada, image, user_id];
+  const consulta = "UPDATE users SET nombre = $1, apellidos = $2, email = $3, password = $4, image = $5 WHERE user_id = $6";
   await pool.query(consulta, values);
 };
 

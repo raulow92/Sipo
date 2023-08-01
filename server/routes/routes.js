@@ -45,6 +45,7 @@ router.post("/login", requestTime, async (req, res) => {
     await verifyCredentials(email, password);
     const token = jwt.sign({ email }, process.env.TOKEN_SECRET);
     res.send(token);
+    console.log(token)
   } catch (error) {
     console.log(error);
     res.status(error.code || 500).send(error.message);
