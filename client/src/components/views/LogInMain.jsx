@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import Context from "../../Context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
+import { Link } from "react-router-dom";
 
 const LogInMain = () => {
   const { setUsuario } = useContext(Context);
@@ -80,9 +81,7 @@ const LogInMain = () => {
               ¿Has olvidado la contraseña?
             </p>
             <div className="border-solid border-t-2 border-gray-300 mt-5"></div>
-            <button className="bg-green-400 hover:bg-green-500 self-center px-6 font-medium rounded-xl text-white p-4 mt-8">
-              Crear cuenta nueva
-            </button>
+            <Link to="/signup" className="bg-green-400 hover:bg-green-500 self-center px-6 font-medium rounded-xl text-white p-4 mt-8">Crear cuenta nueva</Link>
           </div>
         </form>
       </section>

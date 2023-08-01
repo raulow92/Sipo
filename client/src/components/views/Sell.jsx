@@ -1,13 +1,19 @@
 import DownIcon from "@/components/icons/DownIcon";
 import CategoriesIcon from "@/components/icons/CategoriesIcon";
 import LocationIcon from "@/components/icons/LocationIcon";
+import { useNavigate } from "react-router-dom";
+
 
 const Sell = () => {
+    const navigate = useNavigate()
 
+    const handleClick = () => {
+        navigate('/agregado')
+    }
 
     return (
         <div className="container mx-auto">
-            <form className="bg-white mx-6 mt-8 p-8 xl:w-1/2 xl:mx-auto rounded-xl md:drop-shadow-md">
+            <form className="bg-white mx-6 my-8 p-8 xl:w-1/2 xl:mx-auto rounded-xl md:drop-shadow-md">
                 <div className="flex flex-col">
                     <h2 className="text-center text-lg mb-6 font-medium">Publica tu producto</h2>
                     <div className="flex flex-col xl:flex-row items-center justify-between mb-6">
@@ -79,7 +85,7 @@ const Sell = () => {
                         <label htmlFor="image" className="hidden xl:block">Imagen</label>
                         <input type="text" id="image" placeholder="URL imagen" className="border border-gray-300 rounded-xl p-4 pl-6 h-12 w-full xl:w-5/6" />
                     </div>
-                    <input type="submit" value="Publicar producto" className="hover:cursor-pointer bg-green-400 hover:bg-green-600 font-medium rounded-xl text-white p-4"></input>
+                    <input onClick={handleClick} type="submit" value="Publicar producto" className="hover:cursor-pointer bg-green-400 hover:bg-green-600 font-medium rounded-xl text-white p-4"></input>
                 </div>
             </form>
         </div>
