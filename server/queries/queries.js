@@ -31,7 +31,7 @@ const userRegister = async (user) => {
   const passwordEncriptada = bcrypt.hashSync(password);
   password = passwordEncriptada;
   const values = [nombre, apellidos, email, passwordEncriptada];
-  const consulta = "INSERT INTO users (nombre, apellidos, email, password, image) values ($1, $2, $3, $4, NULL)";
+  const consulta = "INSERT INTO users (nombre, apellidos, email, password) values ($1, $2, $3, $4)";
   await pool.query(consulta, values);
 };
 
@@ -59,6 +59,20 @@ const getProducts = async () => {
   if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
   return rowCount;
 };
+
+const getUserProducts = async (user_id) => {
+  const values = [user_id];
+  const consulta = "SELECT * from products WHERE user_id = $1";
+  const { rows: rowCount } = await pool.query(consulta, values);
+  if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
+  return rowCount;
+};
+
+const deleteUserProduct = async (user, product) => {
+  const values = [user, product];
+  const consulta = "DELETE FROM products WHERE user_id = $1 AND product_id = $2";
+  await pool.query(consulta, values);
+}
 
 const getFilteredProducts = async ({
   categoria,
@@ -98,5 +112,7 @@ module.exports = {
   updatePassword,
   updateUser,
   getProducts,
+  getUserProducts,
+  deleteUserProduct,
   getFilteredProducts
 };

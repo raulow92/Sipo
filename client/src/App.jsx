@@ -6,14 +6,14 @@ import Context from "./Context";
 import { useState } from "react";
 
 const App = () => {
-    const login = true;
-    const [usuario, setUsuario] = useState({})
+    const [usuario, setUsuario] = useState(null)
+    const [userSells, setUserSells] = useState(null)
 
     return (
         <>
-        <Context.Provider value = {{usuario, setUsuario }} >
-            {login ? <PrivateHeader /> : <PublicHeader />}
-            {login ? <PrivateRouter /> : <PublicRouter />}
+        <Context.Provider value = {{usuario, setUsuario, userSells, setUserSells }} >
+            {usuario ? <PrivateHeader /> : <PublicHeader />}
+            {usuario ? <PrivateRouter /> : <PublicRouter />}
         </Context.Provider>
         </>
     );

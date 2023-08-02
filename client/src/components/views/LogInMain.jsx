@@ -2,39 +2,51 @@ import LogoSipo from "@/assets/img/logo.svg";
 import { useState, useContext } from "react";
 import Context from "../../Context";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"
-import { Link } from "react-router-dom";
+import axios from "axios";
 
 const LogInMain = () => {
-  const { setUsuario } = useContext(Context);
+  const { setUsuario: setUsuarioGlobal } = useContext(Context);
   const navigate = useNavigate();
-  const [usuario, setUsuarioLocal] = useState({});
+  const [usuarioLocal, setUsuarioLocal] = useState({});
+
+  const toSignUp = () => navigate("/signup")
 
   const handleSetUsuario = ({ target: { value, name } }) => {
     const field = {};
     field[name] = value;
-    setUsuarioLocal({ ...usuario, ...field });
+    setUsuarioLocal({ ...usuarioLocal, ...field });
   };
 
-  const url = "http://localhost:3000/login";
-
-  const loginOK = (e) => {
-    e.preventDefault();
-    navigate("/vender");
-  };
+  const url = "http://localhost:3000";
 
   const inicioSesion = async () => {
-    const { email, password } = usuario;
+    const endpoint = "/login";
+    const { email, password } = usuarioLocal;
     try {
       if (!email || !password) return alert("Email y password obligatorias");
-      const {data: token} = await axios.post(url, usuario);
+      console.log(usuarioLocal)
+      const { data: token } = await axios.post(url + endpoint, usuarioLocal);
       alert("Usuario identificado con éxito 😀");
       localStorage.setItem("token", token);
-      console.log(localStorage.getItem("token"))
-      setUsuario(usuario);
-      loginOK();
+      console.log(localStorage.getItem("token"));
+      getUserData();
+      navigate("/tienda");
     } catch (error) {
-      alert(error)
+      alert(error);
+      console.log(error);
+    }
+  };
+
+  const getUserData = async () => {
+    const endpoint = "/users";
+    const token = localStorage.getItem("token");
+    try {
+      const { data } = await axios.get(url + endpoint, {
+        headers: { Authorization: "Bearer " + token },
+      });
+      setUsuarioGlobal(data);
+      setUsuarioLocal(data);
+    } catch (error) {
       console.log(error);
     }
   };
@@ -53,10 +65,13 @@ const LogInMain = () => {
         </h2>
       </section>
       <section className="xl:mx-full xl:ml-12 2xl:ml-24 2xl:mr-12">
-        <form className="bg-white p-8 w-auto text-lg rounded-xl md:drop-shadow-md" onSubmit={(e) => e.preventDefault()}>
+        <form
+          className="bg-white p-8 w-auto text-lg rounded-xl md:drop-shadow-md"
+          onSubmit={(e) => e.preventDefault()}
+        >
           <div className="flex flex-col">
             <input
-              value={usuario.email}
+              value={usuarioLocal.email}
               onChange={handleSetUsuario}
               type="email"
               name="email"
@@ -64,7 +79,7 @@ const LogInMain = () => {
               className="border border-gray-300 rounded-xl p-4 pl-6"
             />
             <input
-              value={usuario.password}
+              value={usuarioLocal.password}
               onChange={handleSetUsuario}
               type="password"
               name="password"
@@ -75,13 +90,15 @@ const LogInMain = () => {
               onClick={inicioSesion}
               className="hover:cursor-pointer bg-sky-400 hover:bg-sky-500 font-medium rounded-xl text-white p-4 mt-5"
             >
-                Iniciar sesión
+              Iniciar sesión
             </button>
             <p className="text-center text-sky-400 hover:text-sky-500 font-medium text-base mt-5 hover:cursor-pointer">
               ¿Has olvidado la contraseña?
             </p>
             <div className="border-solid border-t-2 border-gray-300 mt-5"></div>
-            <Link to="/signup" className="bg-green-400 hover:bg-green-500 self-center px-6 font-medium rounded-xl text-white p-4 mt-8">Crear cuenta nueva</Link>
+            <button onClick={toSignUp} className="bg-green-400 hover:bg-green-500 self-center px-6 font-medium rounded-xl text-white p-4 mt-8">
+              Crear cuenta nueva
+            </button>
           </div>
         </form>
       </section>
