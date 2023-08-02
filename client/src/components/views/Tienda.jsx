@@ -8,20 +8,52 @@ import Context from "../../Context";
 import axios from "axios";
 
 const Tienda = () => {
-  const { usuario } = useContext(Context)
-
-  const url = "http://localhost:3000/tienda";
+  const url = "http://localhost:3000";
   const [region, setRegion] = useState("Todo Chile");
   const [selectedRegion, setSelectedRegion] = useState("");
   const [products, setProducts] = useState([]);
+  const [filters, setFilter] = useState({});
   const [loaded, setLoaded] = useState(false);
 
   const getData = async () => {
+    const endpoint = "/tienda";
     try {
-      const response = await fetch(url);
-      let productList = await response.json();
-      setProducts(productList);
+      const { data: productList } = await axios.get(url + endpoint);
       console.log(productList);
+      setProducts(productList);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoaded(true);
+    }
+  };
+
+  const handleFilters = ({ target: { value, name } }) => {
+    const field = {};
+    field[name] = value;
+    setFilter({ ...filters, ...field });
+  };
+
+  const getFilteredData = async () => {
+    let filter = [];
+    const values = [];
+
+    const addFilter = (campo, valor) => {
+      values.push(valor);
+      filter.push(`${campo}=${valor}`);
+    };
+    if (filters.categoria) addFilter("categoria", filters.categoria);
+    if (filters.region != "chile") addFilter("region", filters.region);
+
+    let endpoint = "/tienda/filters?";
+
+    if (filter.length > 0) {
+      filter = filter.join("&");
+      endpoint += `${filter}`;
+    }
+    try {
+      const { data: productList } = await axios.get(url + endpoint);
+      setProducts(productList);
     } catch (error) {
       console.log(error);
     } finally {
@@ -32,14 +64,6 @@ const Tienda = () => {
   useEffect(() => {
     getData();
   }, []);
-
-  const handleBuscar = () => setRegion(selectedRegion);
-
-  const handleRegionChange = (e) => {
-    setSelectedRegion(e.target.options[e.target.selectedIndex].text);
-  };
-
-  console.log(usuario.email)
 
   return (
     <div className="container mx-auto mt-6">
@@ -58,9 +82,10 @@ const Tienda = () => {
         <div className="relative flex items-center mr-4 mt-3 w-full xl:mt-0 xl:w-1/5">
           <CategoriesIcon className="absolute w-5 ml-5 pointer-events-none" />
           <select
-            name="category"
-            id="category"
+            name="categoria"
+            id="categoria"
             className="appearance-none border border-gray-300 rounded-xl pl-14 text-gray-600 h-12 pr-20 w-full bg-white"
+            onChange={handleFilters}
           >
             <option value="" defaultChecked hidden>
               Categoría
@@ -78,7 +103,7 @@ const Tienda = () => {
         <div className="relative flex items-center mr-4 mt-3 w-full xl:mt-0 xl:w-3/12">
           <LocationIcon className="absolute w-4 ml-5 pointer-events-none" />
           <select
-            onChange={handleRegionChange}
+            onChange={handleFilters}
             name="region"
             id="region"
             className="appearance-none border border-gray-300 rounded-xl pl-14 text-gray-600 h-12 pr-20 w-full bg-white"
@@ -105,7 +130,7 @@ const Tienda = () => {
         </div>
         <div
           className="relative flex items-center mt-3 xl:mt-0"
-          onClick={handleBuscar}
+          onClick={getFilteredData}
         >
           <SearchIcon
             color="white"
@@ -117,22 +142,23 @@ const Tienda = () => {
         </div>
       </div>
       <div className="mx-16 mt-8 font-medium text-lg">
-        <p>Mostrando: {region}</p>
+        <p>Mostrando: {filters.region}</p>
       </div>
       {loaded ? (
-
         <div className="mx-6 lg:mx-16 mt-6 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    {products.map(({ product_id, image, titulo, descripcion, precio }) => (
-                    <ProductCard
-                      id={product_id}
-                      key={product_id + "A"}
-                      img={image}
-                      titulo={titulo}
-                      descripcion={descripcion}
-                      precio={precio}
-                      filled={false}
-                    />
-                  ))}
+          {products.map(
+            ({ product_id, image, titulo, descripcion, precio }) => (
+              <ProductCard
+                id={product_id}
+                key={product_id + "A"}
+                img={image}
+                titulo={titulo}
+                descripcion={descripcion}
+                precio={precio}
+                filled={false}
+              />
+            )
+          )}
         </div>
       ) : (
         <div className="alert alert-secondary">

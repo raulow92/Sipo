@@ -14,7 +14,7 @@ const PrivateHeader = () => {
   );
 
   const logout = () => {
-    setUsuario({});
+    setUsuario(null);
     localStorage.removeItem("token");
     navigate("/");
   };

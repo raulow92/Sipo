@@ -10,6 +10,8 @@ const {
   updatePassword,
   updateUser,
   getProducts,
+  getUserProducts,
+  deleteUserProduct,
   getFilteredProducts,
 } = require("../queries/queries");
 
@@ -71,9 +73,30 @@ router.get("/tienda", requestTime, async (req, res) => {
   }
 });
 
+router.get("/users/:user_id/ventas", requestTime, async (req, res) => {
+  try {
+    const {user_id} = req.params;
+    const data = await getUserProducts(user_id);
+    res.send(data);
+    console.log(data)
+  } catch (error) {
+    res.status(error.code || 500).send(error.message);
+  }
+});
+
+router.delete("/users/:user_id/ventas/:product_id", requestTime, async (req, res) => {
+  try {
+    const {user_id, product_id} = req.params;
+    await deleteUserProduct(user_id, product_id);
+    res.send("Producto eliminado con éxito");
+  } catch (error) {
+    res.status(error.code || 500).send(error.message);
+  }
+});
+
 router.get("/tienda/filters", requestTime, async (req, res) => {
-  const filters = req.body;
-  const products = await getFilteredProducts(queryString);
+  const filters = req.query;
+  const products = await getFilteredProducts(filters);
   res.send(products);
 });
 

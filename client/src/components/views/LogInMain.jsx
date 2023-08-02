@@ -9,6 +9,8 @@ const LogInMain = () => {
   const navigate = useNavigate();
   const [usuarioLocal, setUsuarioLocal] = useState({});
 
+  const toSignUp = () => navigate("/signup")
+
   const handleSetUsuario = ({ target: { value, name } }) => {
     const field = {};
     field[name] = value;
@@ -22,6 +24,7 @@ const LogInMain = () => {
     const { email, password } = usuarioLocal;
     try {
       if (!email || !password) return alert("Email y password obligatorias");
+      console.log(usuarioLocal)
       const { data: token } = await axios.post(url + endpoint, usuarioLocal);
       alert("Usuario identificado con éxito 😀");
       localStorage.setItem("token", token);
@@ -93,7 +96,7 @@ const LogInMain = () => {
               ¿Has olvidado la contraseña?
             </p>
             <div className="border-solid border-t-2 border-gray-300 mt-5"></div>
-            <button className="bg-green-400 hover:bg-green-500 self-center px-6 font-medium rounded-xl text-white p-4 mt-8">
+            <button onClick={toSignUp} className="bg-green-400 hover:bg-green-500 self-center px-6 font-medium rounded-xl text-white p-4 mt-8">
               Crear cuenta nueva
             </button>
           </div>
