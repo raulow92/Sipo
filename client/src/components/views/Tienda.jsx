@@ -1,15 +1,13 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect} from "react";
 import SearchIcon from "@/components/icons/SearchIcon";
 import CategoriesIcon from "@/components/icons/CategoriesIcon";
 import DownIcon from "@/components/icons/DownIcon";
 import LocationIcon from "@/components/icons/LocationIcon";
 import ProductCard from "@/components/cards/ProductCard";
-import Context from "../../Context";
 import axios from "axios";
 
 const Tienda = () => {
   const url = "http://localhost:3000";
-  const [region, setRegion] = useState("Todo Chile");
   const [selectedRegion, setSelectedRegion] = useState("");
   const [products, setProducts] = useState([]);
   const [filters, setFilter] = useState({});
@@ -43,7 +41,8 @@ const Tienda = () => {
       filter.push(`${campo}=${valor}`);
     };
     if (filters.categoria) addFilter("categoria", filters.categoria);
-    if (filters.region != "chile") addFilter("region", filters.region);
+    if (filters.region != undefined && filters.region != "chile") addFilter("region", filters.region);
+    if (filters.buscador) addFilter("buscador", filters.buscador)
 
     let endpoint = "/tienda/filters?";
 
@@ -54,6 +53,7 @@ const Tienda = () => {
     try {
       const { data: productList } = await axios.get(url + endpoint);
       setProducts(productList);
+      handleRegionChange();
     } catch (error) {
       console.log(error);
     } finally {
@@ -65,6 +65,11 @@ const Tienda = () => {
     getData();
   }, []);
 
+  const handleRegionChange = (e) => {
+    const regionSelect = document.getElementById('region')
+    setSelectedRegion(regionSelect.options[regionSelect.selectedIndex].text);
+  };
+
   return (
     <div className="container mx-auto mt-6">
       <div className="flex flex-col xl:flex-row justify-center bg-white mx-6 lg:mx-16  p-6 rounded-xl shadow-md">
@@ -74,9 +79,12 @@ const Tienda = () => {
             color="#38bdf8"
           />
           <input
+            name="buscador"
+            id="buscador"
             type="text"
             placeholder="Estoy buscando..."
             className="border border-gray-300 rounded-xl pl-14 h-12 pr-20 w-full"
+            onChange={handleFilters}
           />
         </div>
         <div className="relative flex items-center mr-4 mt-3 w-full xl:mt-0 xl:w-1/5">
@@ -142,7 +150,7 @@ const Tienda = () => {
         </div>
       </div>
       <div className="mx-16 mt-8 font-medium text-lg">
-        <p>Mostrando: {filters.region}</p>
+        <p>Mostrando: {selectedRegion}</p>
       </div>
       {loaded ? (
         <div className="mx-6 lg:mx-16 mt-6 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">

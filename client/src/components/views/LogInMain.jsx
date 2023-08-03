@@ -24,11 +24,9 @@ const LogInMain = () => {
     const { email, password } = usuarioLocal;
     try {
       if (!email || !password) return alert("Email y password obligatorias");
-      console.log(usuarioLocal)
       const { data: token } = await axios.post(url + endpoint, usuarioLocal);
       alert("Usuario identificado con éxito 😀");
       localStorage.setItem("token", token);
-      console.log(localStorage.getItem("token"));
       getUserData();
       navigate("/tienda");
     } catch (error) {
@@ -45,7 +43,6 @@ const LogInMain = () => {
         headers: { Authorization: "Bearer " + token },
       });
       setUsuarioGlobal(data);
-      setUsuarioLocal(data);
     } catch (error) {
       console.log(error);
     }
