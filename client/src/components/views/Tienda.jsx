@@ -8,7 +8,7 @@ import axios from "axios";
 
 const Tienda = () => {
   const url = "http://localhost:3000";
-  const [selectedRegion, setSelectedRegion] = useState("");
+  const [selectedRegion, setSelectedRegion] = useState("Todo Chile");
   const [products, setProducts] = useState([]);
   const [filters, setFilter] = useState({});
   const [loaded, setLoaded] = useState(false);
@@ -40,7 +40,7 @@ const Tienda = () => {
       values.push(valor);
       filter.push(`${campo}=${valor}`);
     };
-    if (filters.categoria) addFilter("categoria", filters.categoria);
+    if (filters.categoria != undefined && filters.categoria != "all") addFilter("categoria", filters.categoria);
     if (filters.region != undefined && filters.region != "chile") addFilter("region", filters.region);
     if (filters.buscador) addFilter("buscador", filters.buscador)
 
@@ -49,6 +49,8 @@ const Tienda = () => {
     if (filter.length > 0) {
       filter = filter.join("&");
       endpoint += `${filter}`;
+    } else if (filter.length == 0) {
+      endpoint = "/tienda";
     }
     try {
       const { data: productList } = await axios.get(url + endpoint);
@@ -65,7 +67,7 @@ const Tienda = () => {
     getData();
   }, []);
 
-  const handleRegionChange = (e) => {
+  const handleRegionChange = () => {
     const regionSelect = document.getElementById('region')
     setSelectedRegion(regionSelect.options[regionSelect.selectedIndex].text);
   };
@@ -95,9 +97,10 @@ const Tienda = () => {
             className="appearance-none border border-gray-300 rounded-xl pl-14 text-gray-600 h-12 pr-20 w-full bg-white"
             onChange={handleFilters}
           >
-            <option value="" defaultChecked hidden>
+            <option value="all" defaultChecked hidden>
               Categoría
             </option>
+            <option value="all">Todo</option>
             <option value="tecnologia">Tecnología</option>
             <option value="hogar">Hogar</option>
             <option value="deportes">Deportes</option>

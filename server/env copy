@@ -1,0 +1,6 @@
+DB_HOST = localhost
+DB_DATABASE = sipo
+DB_USER = postgres
+DB_PASS = postgres
+TOKEN_SECRET = az_AZ
+PORT = 3000

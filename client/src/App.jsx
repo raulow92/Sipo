@@ -2,6 +2,7 @@ import PublicHeader from "@/components/headers/PublicHeader";
 import PrivateHeader from "@/components/headers/PrivateHeader";
 import PublicRouter from "@/components/router/PublicRouter";
 import PrivateRouter from "@/components/router/PrivateRouter";
+import Footer from "@/components/Footer";
 import Context from "./Context";
 import { useState } from "react";
 
@@ -11,10 +12,11 @@ const App = () => {
 
     return (
         <>
-        <Context.Provider value = {{usuario, setUsuario, userSells, setUserSells }} >
-            {usuario ? <PrivateHeader /> : <PublicHeader />}
-            {usuario ? <PrivateRouter /> : <PublicRouter />}
-        </Context.Provider>
+            <Context.Provider value = {{usuario, setUsuario, userSells, setUserSells }} >
+                {usuario ? <PrivateHeader /> : <PublicHeader />}
+                {usuario ? <PrivateRouter /> : <PublicRouter />}
+            </Context.Provider>
+            <Footer />
         </>
     );
 };

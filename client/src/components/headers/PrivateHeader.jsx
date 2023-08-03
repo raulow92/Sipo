@@ -1,6 +1,7 @@
 import LogoSipo from "@/assets/img/logo.svg";
 import MenuIcon from "@/components/icons/MenuIcon";
 import CloseIcon from "@/components/icons/CloseIcon";
+import LogOutIcon from "@/components/icons/LogOutIcon";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -59,6 +60,20 @@ const PrivateHeader = () => {
         >
           Dashboard
         </Link>
+        <Link 
+          to="/"
+          onClick={[logout, handleCloseMenu]}
+          className="hidden md:flex"
+        >
+          <LogOutIcon className="w-6 cursor-pointer hover:opacity-80" />
+        </Link>
+        <Link
+          to="/"
+          className="md:font-normal hover:text-sky-400 md:hidden"
+          onClick={[logout, handleCloseMenu]}
+        >
+          Cerrar sesión
+        </Link>
         <Link
           to="/vender"
           className="md:bg-sky-400 md:text-white md:px-5 md:py-3 md:rounded-xl md:hover:bg-sky-500"
@@ -66,12 +81,6 @@ const PrivateHeader = () => {
         >
           Publicar venta
         </Link>
-        <button
-          onClick={logout}
-          className="md:bg-red-500 md:text-white md:px-5 md:py-3 md:rounded-xl md:hover:bg-red-800"
-        >
-          Salir
-        </button>
       </nav>
     </header>
   );

@@ -7,7 +7,7 @@ import axios from "axios";
 const LogInMain = () => {
   const { setUsuario: setUsuarioGlobal } = useContext(Context);
   const navigate = useNavigate();
-  const [usuarioLocal, setUsuarioLocal] = useState({});
+  const [usuarioLocal, setUsuarioLocal] = useState({email: "jbennell5@netvibes.com", password: "12345"});
 
   const toSignUp = () => navigate("/signup")
 
