@@ -2,7 +2,7 @@ import PublicHeader from "@/components/headers/PublicHeader";
 import PrivateHeader from "@/components/headers/PrivateHeader";
 import PublicRouter from "@/components/router/PublicRouter";
 import PrivateRouter from "@/components/router/PrivateRouter";
-import Footer from "@/components/Footer";
+import Footer from "@/components/views/Footer";
 import Context from "./Context";
 import { useState } from "react";
 
