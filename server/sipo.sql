@@ -2593,6 +2593,15 @@ VALUES
 		5
 	);
 
+--TABLA FAVORITES--
+CREATE TABLE
+	favorites (
+		product_id INT,
+		user_id INT,
+		CONSTRAINT fk_product FOREIGN KEY(product_id) REFERENCES products(product_id),
+		CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES users(user_id)
+	); 
+
 /* --TABLA BUYS--
 CREATE TABLE
 	buys (
@@ -2601,11 +2610,4 @@ CREATE TABLE
 		user_id INT,
 		CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES products (product_id) CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users (user_id)
 	);
-
---TABLA FAVORITES--
-CREATE TABLE
-	favorites (
-		product_id INT,
-		user_id INT,
-		CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES products (product_id) CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users (user_id)
-	); */
+*/

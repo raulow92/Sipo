@@ -43,6 +43,7 @@ const LogInMain = () => {
         headers: { Authorization: "Bearer " + token },
       });
       setUsuarioGlobal(data);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }

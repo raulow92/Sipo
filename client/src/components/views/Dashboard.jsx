@@ -26,7 +26,7 @@ const Dashboard = () => {
                     <h2 className="mt-3 text-sky-400 font-bold text-lg">Mis Compras</h2>
                 </div>
                 <div onClick={ toFavoritos } className="flex flex-col justify-end text-center mx-auto bg-white p-4 rounded-lg w-44 cursor-pointer hover:bg-gray-300">
-                    <HeartIcon stroke="#38bdf8" className="w-20 mx-auto" />
+                    <HeartIcon filled="none" stroke="#38bdf8" className="w-20 mx-auto" />
                     <h2 className="mt-3 text-sky-400 font-bold text-lg">Favoritos</h2>
                 </div>
                 <div onClick={ toVentas } className="flex flex-col justify-end text-center mx-auto bg-white p-4 rounded-lg w-44 cursor-pointer hover:bg-gray-300">

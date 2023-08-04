@@ -65,7 +65,7 @@ const ProductDetail = () => {
                     </div>
                     <div className="flex justify-between item-center my-6">
                         <button id={product_id} onClick={handleClick} className="bg-sky-400 hover:bg-sky-500 w-5/6 py-3 text-white font-medium rounded-lg">Comprar</button>
-                            <HeartIcon filled={false} className="w-10 mx-auto" />
+                            <HeartIcon filled="none" className="w-10 mx-auto" />
                     </div>
                 </div>
             </div>

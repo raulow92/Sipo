@@ -13,6 +13,8 @@ const {
   getUserProducts,
   deleteUserProduct,
   getFilteredProducts,
+  addFavorite,
+  getFavorites,
 } = require("../queries/queries");
 
 const { requestTime, validateToken } = require("../middleware/middleware");
@@ -98,6 +100,23 @@ router.get("/tienda/filters", requestTime, async (req, res) => {
   const filters = req.query;
   const products = await getFilteredProducts(filters);
   res.send(products);
+});
+
+router.post("/save_favorite", requestTime, async (req, res) => {
+  const { user_id, product_id } = req.body
+  await addFavorite(user_id, product_id)
+  res.send("Producto agregado a favoritos")
+});
+
+router.get("/users/:user_id/favoritos", requestTime, async (req, res) => {
+  try {
+    const {user_id} = req.params;
+    const data = await getFavorites(user_id);
+    res.send(data);
+    console.log(data);
+  } catch (error) {
+    res.status(error.code || 500).send(error.message);
+  }
 });
 
 module.exports = router;

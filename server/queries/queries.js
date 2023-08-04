@@ -125,6 +125,29 @@ const getFilteredProducts = async ({ categoria, region, buscador }) => {
   }
 };
 
+const addFavorite = async (user_id, product_id) => {
+  const values = [user_id, product_id];
+  const consulta =
+    "INSERT INTO favorites (user_id, product_id) values ($1, $2)";
+  await pool.query(consulta, values);
+};
+
+const getFavorites = async (user_id) => {
+  const values = [user_id];
+  const consulta = "SELECT p.* FROM products p JOIN favorites f ON p.product_id = f.product_id WHERE f.user_id = $1";
+  const { rows: rowCount } = await pool.query(consulta, values);
+  if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
+  return rowCount;
+}
+
+const getUserProaducts = async (user_id) => {
+  const values = [user_id];
+  const consulta = "SELECT * from products WHERE user_id = $1";
+  const { rows: rowCount } = await pool.query(consulta, values);
+  if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
+  return rowCount;
+};
+
 module.exports = {
   getUser,
   verifyCredentials,
@@ -135,4 +158,6 @@ module.exports = {
   getUserProducts,
   deleteUserProduct,
   getFilteredProducts,
+  addFavorite,
+  getFavorites
 };
