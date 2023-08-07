@@ -7,9 +7,12 @@ import axios from "axios";
 const LogInMain = () => {
   const { setUsuario: setUsuarioGlobal } = useContext(Context);
   const navigate = useNavigate();
-  const [usuarioLocal, setUsuarioLocal] = useState({email: "jbennell5@netvibes.com", password: "12345"});
+  const [usuarioLocal, setUsuarioLocal] = useState({
+    email: "jbennell5@netvibes.com",
+    password: "12345",
+  });
 
-  const toSignUp = () => navigate("/signup")
+  const toSignUp = () => navigate("/signup");
 
   const handleSetUsuario = ({ target: { value, name } }) => {
     const field = {};
@@ -42,8 +45,15 @@ const LogInMain = () => {
       const { data } = await axios.get(url + endpoint, {
         headers: { Authorization: "Bearer " + token },
       });
-      setUsuarioGlobal(data);
-      console.log(data);
+      console.log(data.user_id);
+      const favEndpoint = `/user/${data.user_id}/favorites`;
+      const { data: favorites } = await axios.get(url + favEndpoint);
+      const result = {
+        data,
+        favorites,
+      };
+      setUsuarioGlobal(result);
+      console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -94,7 +104,10 @@ const LogInMain = () => {
               ¿Has olvidado la contraseña?
             </p>
             <div className="border-solid border-t-2 border-gray-300 mt-5"></div>
-            <button onClick={toSignUp} className="bg-green-400 hover:bg-green-500 self-center px-6 font-medium rounded-xl text-white p-4 mt-8">
+            <button
+              onClick={toSignUp}
+              className="bg-green-400 hover:bg-green-500 self-center px-6 font-medium rounded-xl text-white p-4 mt-8"
+            >
               Crear cuenta nueva
             </button>
           </div>

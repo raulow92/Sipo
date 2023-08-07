@@ -132,13 +132,38 @@ const addFavorite = async (user_id, product_id) => {
   await pool.query(consulta, values);
 };
 
-const getFavorites = async (user_id) => {
+const getUserFavorites = async (user_id) => {
   const values = [user_id];
-  const consulta = "SELECT p.* FROM products p JOIN favorites f ON p.product_id = f.product_id WHERE f.user_id = $1";
+  const consulta = "SELECT * from favorites WHERE user_id = $1";
   const { rows: rowCount } = await pool.query(consulta, values);
   if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
   return rowCount;
-}
+};
+
+const getFavorite = async (user_id, product_id) => {
+  const values = [user_id, product_id];
+  const consulta =
+    "SELECT * from favorites WHERE user_id = $1 AND product_id = $2";
+  const { rows: rowCount } = await pool.query(consulta, values);
+  if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
+  return rowCount[0];
+};
+
+const getUserFavoritesDetail = async (user_id) => {
+  const values = [user_id];
+  const consulta =
+    "SELECT p.* FROM products p JOIN favorites f ON p.product_id = f.product_id WHERE f.user_id = $1";
+  const { rows: rowCount } = await pool.query(consulta, values);
+  if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
+  return rowCount;
+};
+
+const deleteUserFavorite = async (user, product) => {
+  const values = [user, product];
+  const consulta =
+    "DELETE FROM favorites WHERE user_id = $1 AND product_id = $2";
+  await pool.query(consulta, values);
+};
 
 const getUserProaducts = async (user_id) => {
   const values = [user_id];
@@ -159,5 +184,8 @@ module.exports = {
   deleteUserProduct,
   getFilteredProducts,
   addFavorite,
-  getFavorites
+  getUserFavorites,
+  getFavorite,
+  getUserFavoritesDetail,
+  deleteUserFavorite,
 };

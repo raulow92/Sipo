@@ -29,6 +29,7 @@ const SignUpMain = () => {
       console.log(error);
     }
   };
+
   return (
     <main className="container mx-auto grid grid-cols-1 xl:grid-cols-2 md:items-center px-6 py-6 md:px-24 md:py-20">
       <section className="hidden xl:flex flex-col mx-auto md:pl-12">

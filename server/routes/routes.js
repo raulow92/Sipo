@@ -14,7 +14,10 @@ const {
   deleteUserProduct,
   getFilteredProducts,
   addFavorite,
-  getFavorites,
+  getUserFavorites,
+  getFavorite,
+  getUserFavoritesDetail,
+  deleteUserFavorite,
 } = require("../queries/queries");
 
 const { requestTime, validateToken } = require("../middleware/middleware");
@@ -49,7 +52,7 @@ router.post("/login", requestTime, async (req, res) => {
     await verifyCredentials(email, password);
     const token = jwt.sign({ email }, process.env.TOKEN_SECRET);
     res.send(token);
-    console.log(token)
+    console.log(token);
   } catch (error) {
     console.log(error);
     res.status(error.code || 500).send(error.message);
@@ -77,24 +80,28 @@ router.get("/tienda", requestTime, async (req, res) => {
 
 router.get("/users/:user_id/ventas", requestTime, async (req, res) => {
   try {
-    const {user_id} = req.params;
+    const { user_id } = req.params;
     const data = await getUserProducts(user_id);
     res.send(data);
-    console.log(data)
+    console.log(data);
   } catch (error) {
     res.status(error.code || 500).send(error.message);
   }
 });
 
-router.delete("/users/:user_id/ventas/:product_id", requestTime, async (req, res) => {
-  try {
-    const {user_id, product_id} = req.params;
-    await deleteUserProduct(user_id, product_id);
-    res.send("Producto eliminado con éxito");
-  } catch (error) {
-    res.status(error.code || 500).send(error.message);
+router.delete(
+  "/users/:user_id/ventas/:product_id",
+  requestTime,
+  async (req, res) => {
+    try {
+      const { user_id, product_id } = req.params;
+      await deleteUserProduct(user_id, product_id);
+      res.send("Producto eliminado con éxito");
+    } catch (error) {
+      res.status(error.code || 500).send(error.message);
+    }
   }
-});
+);
 
 router.get("/tienda/filters", requestTime, async (req, res) => {
   const filters = req.query;
@@ -102,16 +109,47 @@ router.get("/tienda/filters", requestTime, async (req, res) => {
   res.send(products);
 });
 
-router.post("/save_favorite", requestTime, async (req, res) => {
-  const { user_id, product_id } = req.body
-  await addFavorite(user_id, product_id)
-  res.send("Producto agregado a favoritos")
+router.get("/favorites/:user_id/:product_id", requestTime, async (req, res) => {
+  try {
+    const { user_id, product_id } = req.params;
+    const favorites = await getFavorite(user_id, product_id);
+    res.send(favorites);
+  } catch (error) {
+    res.status(error.code || 500).send(error.message);
+  }
 });
 
-router.get("/users/:user_id/favoritos", requestTime, async (req, res) => {
+router.delete(
+  "/favorites/:user_id/:product_id",
+  requestTime,
+  async (req, res) => {
+    const { user_id, product_id } = req.params;
+    await deleteUserFavorite(user_id, product_id);
+    res.send("Producto eliminado de favoritos");
+  }
+);
+
+router.post("/favorites", requestTime, async (req, res) => {
+  const { user_id, product_id } = req.body;
+  await addFavorite(user_id, product_id);
+  res.send("Producto agregado a favoritos");
+});
+
+router.get("/favorites/:user_id", requestTime, async (req, res) => {
   try {
-    const {user_id} = req.params;
-    const data = await getFavorites(user_id);
+    const { user_id } = req.params;
+    const data = await getUserFavoritesDetail(user_id);
+    res.send(data);
+    console.log(data);
+  } catch (error) {
+    res.status(error.code || 500).send(error.message);
+  }
+});
+
+router.get("/user/:user_id/favorites", requestTime, async (req, res) => {
+  try {
+    const { user_id } = req.params;
+    const data = await getUserFavorites(user_id);
     res.send(data);
     console.log(data);
   } catch (error) {
