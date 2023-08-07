@@ -4,7 +4,7 @@ import Context from "../../Context";
 import axios from "axios";
 
 const Favoritos = () => {
-  const { usuario } = useContext(Context);
+  const { usuario, setUsuario: setUsuarioGlobal  } = useContext(Context);
   const [favorites, setFavorites] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
@@ -19,6 +19,54 @@ const Favoritos = () => {
       console.log(error);
     } finally {
       setLoaded(true);
+    }
+  };
+
+  const getUserData = async () => {
+    const endpoint = "/users";
+    const token = localStorage.getItem("token");
+    try {
+      const { data } = await axios.get(url + endpoint, {
+        headers: { Authorization: "Bearer " + token },
+      });
+      const favEndpoint = `/user/${data.user_id}/favorites`;
+      const { data: favorites } = await axios.get(url + favEndpoint);
+      const result = {
+        data,
+        favorites,
+      };
+      setUsuarioGlobal(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleFavorite = async (id) => {
+    const endpoint = "/favorites";
+    const userEndpoint = `/${usuario.data.user_id}/${id}`;
+    try {
+      const { data: userFavorites } = await axios.get(
+        url + endpoint + userEndpoint
+      );
+      if (!userFavorites) {
+        const { data: response } = await axios.post(url + endpoint, {
+          user_id: usuario.data.user_id,
+          product_id: id,
+        });
+        getUserData();
+      } else {
+        try {
+          const { data: response } = await axios.delete(
+            url + endpoint + userEndpoint
+          );
+          getData()
+          getUserData();
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -38,6 +86,7 @@ const Favoritos = () => {
             titulo={titulo}
             descripcion={descripcion}
             precio={precio}
+            handleFavorite={handleFavorite}
           />
         ))}
       </div>

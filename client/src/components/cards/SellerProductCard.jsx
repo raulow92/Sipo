@@ -12,7 +12,7 @@ const SellerProductCard = ({ id, img, titulo, descripcion, precio }) => {
   const url = "http://localhost:3000";
 
   const getData = async () => {
-    const endpoint = `/users/${usuario.user_id}/ventas`;
+    const endpoint = `/users/${usuario.data.user_id}/ventas`;
     try {
       const { data: productList } = await axios.get(url + endpoint);
       setUserSells(productList);
@@ -22,7 +22,7 @@ const SellerProductCard = ({ id, img, titulo, descripcion, precio }) => {
   };
 
   const deleteProduct = async () => {
-    const endpoint = `/users/${usuario.user_id}/ventas/${id}`;
+    const endpoint = `/users/${usuario.data.user_id}/ventas/${id}`;
     try {
       await axios.delete(url + endpoint);
       alert("Producto eliminado exitosamente");
