@@ -157,4 +157,14 @@ router.get("/user/:user_id/favorites", requestTime, async (req, res) => {
   }
 });
 
+router.patch("/update", requestTime, async (req, res) => {
+  try {
+    const userData = req.body;
+    await updateUser(userData);
+    res.send("Información de usuario actualizada con éxito");
+  } catch (error) {
+    res.status(error.code || 500).send(error.message);
+  }
+});
+
 module.exports = router;

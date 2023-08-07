@@ -37,7 +37,6 @@ const Tienda = () => {
       const { data } = await axios.get(url + endpoint, {
         headers: { Authorization: "Bearer " + token },
       });
-      console.log(data.user_id);
       const favEndpoint = `/user/${data.user_id}/favorites`;
       const { data: favorites } = await axios.get(url + favEndpoint);
       const result = {
@@ -45,7 +44,6 @@ const Tienda = () => {
         favorites,
       };
       setUsuarioGlobal(result);
-      console.log(result);
     } catch (error) {
       console.log(error);
     }
