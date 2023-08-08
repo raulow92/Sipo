@@ -42,13 +42,13 @@ const SellerProductCard = ({ id, img, titulo, descripcion, precio }) => {
         <h3 className="text-lg font-medium my-2 mx-2">{titulo}</h3>
         <p className="text-sm mx-2 h-24">{descripcion}</p>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <p className="text-xl font-extrabold mt-2 mx-2 bg-white text-sky-400">
           {priceFormat.format(precio)}
         </p>
         <p
           onClick={deleteProduct}
-          className="text-xl font-extrabold mt-2 mx-2 bg-white text-red-500 hover:cursor-pointer"
+          className="text-lg font-bold mt-2 mx-2 bg-white text-red-500 hover:cursor-pointer"
         >
           Eliminar
         </p>

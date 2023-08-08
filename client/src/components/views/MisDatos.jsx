@@ -6,9 +6,29 @@ import { useNavigate } from "react-router-dom";
 
 const MisDatos = () => {
     const navigate = useNavigate()
-    const { usuario, setUsuario } = useContext(Context);
+    const { usuario, setUsuario: setUsuarioGlobal } = useContext(Context);
     const { data: userData } = usuario; 
     const url = "http://localhost:3000";
+
+    const getUserData = async () => {
+        const endpoint = "/users";
+        const token = localStorage.getItem("token");
+            try {
+            const { data } = await axios.get(url + endpoint, {
+                headers: { Authorization: "Bearer " + token },
+            });
+            const favEndpoint = `/user/${data.user_id}/favorites`;
+            const { data: favorites } = await axios.get(url + favEndpoint);
+            const result = {
+            data,
+            favorites,
+            };
+            setUsuarioGlobal(result);
+            console.log(result);
+        } catch (error) {
+            console.log(error);
+        }
+        };
 
     const [formData, setFormData] = useState({
         id: userData.user_id,
@@ -21,7 +41,6 @@ const MisDatos = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        console.log(name, value);
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
@@ -30,12 +49,11 @@ const MisDatos = () => {
 
     const handleUpdateData = async (e) => {
         e.preventDefault();
-        console.log(formData);
         const endpoint = "/update";
         try {
             await axios.patch(url + endpoint, formData);
             alert("Datos actualizados exitosamente")
-            setUsuario({ ...usuario, data: formData });
+            getUserData()
             navigate("/dashboard");
             console.log("Datos actualizados exitosamente");
         } catch (error) {
@@ -105,6 +123,7 @@ const MisDatos = () => {
                             type="password"
                             id="pass"
                             name="pass"
+                            value={formData.pass}
                             placeholder="Nueva Contraseña"
                             onChange={handleInputChange}
                             className="border border-gray-300 rounded-xl p-4 pl-6 h-12 w-full xl:w-5/6"
