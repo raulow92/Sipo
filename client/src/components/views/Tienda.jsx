@@ -127,6 +127,10 @@ const Tienda = () => {
     }
   };
 
+  const filteredProducts = products.filter((product) => {
+    return product.user_id != usuario.data.user_id;
+  });
+
   return (
     <div className="container mx-auto mt-6">
       <div className="flex flex-col xl:flex-row justify-center bg-white mx-6 lg:mx-16  p-6 rounded-xl shadow-md">
@@ -212,7 +216,7 @@ const Tienda = () => {
       </div>
       {loaded ? (
         <div className="mx-6 lg:mx-16 mt-6 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {products.map(
+          {filteredProducts.map(
             ({ product_id, image, titulo, descripcion, precio }) => (
               <ProductCard
                 id={product_id}
