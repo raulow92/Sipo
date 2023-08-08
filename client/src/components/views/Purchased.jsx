@@ -1,42 +1,33 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import SellerCard from "@/components/cards/SellerCard";
-
+import axios from 'axios';
 
 const Purchased = () => {
-    const url = "http://localhost:3000/tienda";
-    const [products, setProducts] = useState([]);
+    const url = "http://localhost:3000/";
     const [product, setProduct] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate()
-
+    
     const handleClick = () => {
         navigate('/tienda')
     }
 
-    const getData = async () => {
+    const getProduct = async () => {
         try {
-            const response = await fetch(url);
-            let productList = await response.json();
-            setProducts(productList);
+            const endpoint = `product/${id}`;
+            const response = await axios.get(url + endpoint);
+            const productData = response.data
+            setProduct(productData);
+            console.log(productData);
         } catch (error) {
             console.log(error);
         }
     };
 
     useEffect(() => {
-        getData();
+        getProduct();
     }, []);
-
-    useEffect(() => {
-        try {
-            const selectedProduct = products.find((product) => product.product_id == id);
-            setProduct(selectedProduct)
-        } catch (error) {
-            console.log(error);
-        }
-
-    }, [id, products]);
 
     if (!product) return <p>Loading...</p>;
 
@@ -50,7 +41,7 @@ const Purchased = () => {
                 <p className="font-medium">Ponte en contacto con el vendedor para gestionar el pago y el envío del artículo.</p>
             </div>
             <div className="mx-auto w-2/3 my-6">
-                <SellerCard />
+                <SellerCard id={id}/>
             </div>
             <div className="flex justify-center">
                 <button onClick={handleClick} className="bg-green-400 px-6 py-3 rounded-lg text-white hover:bg-green-500">Volver a la tienda</button>

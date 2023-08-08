@@ -20,6 +20,8 @@ const {
   deleteUserFavorite,
   buyProduct,
   getPurchasedProducts,
+  getSeller,
+  getSelectedProduct,
 } = require("../queries/queries");
 
 const { requestTime, validateToken } = require("../middleware/middleware");
@@ -169,7 +171,7 @@ router.patch("/update", requestTime, async (req, res) => {
   }
 });
 
-router.post("/tienda/buy", requestTime, async (req, res) => {
+router.post("/buy", requestTime, async (req, res) => {
   const { product_id, user_id } = req.body;
   await buyProduct(product_id, user_id);
   res.send("Producto comprado con éxito");
@@ -179,6 +181,28 @@ router.get("/buys/:user_id", requestTime, async (req, res) => {
   try {
     const { user_id } = req.params;
     const data = await getPurchasedProducts(user_id);
+    res.send(data);
+    console.log(data);
+  } catch (error) {
+    res.status(error.code || 500).send(error.message);
+  }
+});
+
+router.get("/seller/:product_id", requestTime, async (req, res) => {
+  try {
+    const { product_id } = req.params;
+    const data = await getSeller(product_id);
+    res.send(data);
+    console.log(data);
+  } catch (error) {
+    res.status(error.code || 500).send(error.message);
+  }
+});
+
+router.get("/product/:product_id", requestTime, async (req, res) => {
+  try {
+    const { product_id } = req.params;
+    const data = await getSelectedProduct(product_id);
     res.send(data);
     console.log(data);
   } catch (error) {

@@ -12,8 +12,7 @@ const priceFormat = new Intl.NumberFormat("es-CL", {
 });
 
 const ProductDetail = () => {
-    const url = "http://localhost:3000/tienda";
-    const [products, setProducts] = useState([]);
+    const url = "http://localhost:3000/";
     const [product, setProduct] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
@@ -21,7 +20,7 @@ const ProductDetail = () => {
 
     const handleClick = async (e) => {
         e.preventDefault();
-        const endpoint = `/buy`;
+        const endpoint = `buy`;
         try {
             const { data: response } = await axios.post(url + endpoint, {
                 product_id: id,
@@ -34,30 +33,22 @@ const ProductDetail = () => {
         }
     };
 
-    const getData = async () => {
+    const getProduct = async () => {
         try {
-            const response = await axios.get(url);
-            const productList = response.data
-            setProducts(productList);
+            const endpoint = `product/${id}`;
+            const response = await axios.get(url + endpoint);
+            const productData = response.data
+            setProduct(productData);
+            console.log(productData);
         } catch (error) {
             console.log(error);
         }
     };
 
     useEffect(() => {
-        getData();
+        window.scrollTo(0, 0)
+        getProduct();
     }, []);
-
-    useEffect(() => {
-        try {
-            const selectedProduct = products.find(
-                (product) => product.product_id == id
-            );
-            setProduct(selectedProduct);
-        } catch (error) {
-            console.log(error);
-        }
-    }, [id, products]);
 
     if (!product) return <p>Loading...</p>;
 
@@ -75,7 +66,7 @@ const ProductDetail = () => {
                     />
                 </div>
                 <div>
-                    <SellerCard />
+                    <SellerCard id={id}/>
                     <div className="bg-white mt-6 p-6 rounded-lg shadow-md">
                         <h2 className="text-xl font-medium mb-1">
                             Detalles del producto

@@ -174,7 +174,7 @@ const deleteUserFavorite = async (user, product) => {
 const buyProduct = async (product_id, user_id) => {
   const values = [product_id, user_id];
   const consulta =
-    "INSERT INTO buys (product_id, user_id ) values ($1, $2)";
+    "INSERT INTO buys (product_id, user_id) values ($1, $2)";
   await pool.query(consulta, values);
 };
 
@@ -185,6 +185,24 @@ const getPurchasedProducts = async (user_id) => {
   const { rows: rowCount } = await pool.query(consulta, values);
   if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
   return rowCount;
+};
+
+const getSeller = async (product_id) => {
+  const values = [product_id];
+  const consulta =
+    "SELECT u.* FROM users u INNER JOIN products p ON u.user_id = p.user_id WHERE p.product_id = $1";
+  const { rows: rowCount } = await pool.query(consulta, values);
+  if (!rowCount) throw { code: 404, message: "Producto no encontrado" };
+  return rowCount;
+};
+
+const getSelectedProduct = async (product_id) => {
+  const values = [product_id];
+  const consulta =
+    "SELECT * FROM products WHERE product_id = $1";
+  const { rows: rowCount } = await pool.query(consulta, values);
+  if (!rowCount) throw { code: 404, message: "Producto no encontrado" };
+  return rowCount[0];
 };
 
 module.exports = {
@@ -204,4 +222,6 @@ module.exports = {
   deleteUserFavorite,
   buyProduct,
   getPurchasedProducts,
+  getSeller,
+  getSelectedProduct
 };
