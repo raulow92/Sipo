@@ -9,10 +9,11 @@ import { useState } from "react";
 const App = () => {
     const [usuario, setUsuario] = useState(null)
     const [userSells, setUserSells] = useState(null)
+    const [userBuys, setUserBuys] = useState(null)
 
     return (
         <>
-            <Context.Provider value = {{usuario, setUsuario, userSells, setUserSells }} >
+            <Context.Provider value = {{usuario, setUsuario, userSells, setUserSells, userBuys, setUserBuys }} >
                 {usuario ? <PrivateHeader /> : <PublicHeader />}
                 {usuario ? <PrivateRouter /> : <PublicRouter />}
             </Context.Provider>

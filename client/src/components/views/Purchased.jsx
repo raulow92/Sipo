@@ -11,7 +11,7 @@ const Purchased = () => {
     const navigate = useNavigate()
 
     const handleClick = () => {
-        navigate('/')
+        navigate('/tienda')
     }
 
     const getData = async () => {
@@ -53,7 +53,7 @@ const Purchased = () => {
                 <SellerCard />
             </div>
             <div className="flex justify-center">
-                <button onClick={handleClick} className="bg-green-400 px-6 py-3 rounded-lg text-white">Volver a la tienda</button>
+                <button onClick={handleClick} className="bg-green-400 px-6 py-3 rounded-lg text-white hover:bg-green-500">Volver a la tienda</button>
             </div>
         </div>
     )

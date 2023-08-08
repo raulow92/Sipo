@@ -2602,12 +2602,13 @@ CREATE TABLE
 		CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
 	); 
 
-/* --TABLA BUYS--
+--TABLA BUYS--
 CREATE TABLE
 	buys (
 		buy_id SERIAL PRIMARY KEY,
 		product_id INT,
 		user_id INT,
-		CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES products (product_id) CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users (user_id)
+		CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES products (product_id),
+		CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users (user_id)
 	);
-*/
+
