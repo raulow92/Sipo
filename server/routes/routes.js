@@ -23,6 +23,7 @@ const {
   getSeller,
   getSelectedProduct,
   productSelled,
+  sellProduct,
 } = require("../queries/queries");
 
 const { requestTime, validateToken } = require("../middleware/middleware");
@@ -210,6 +211,12 @@ router.get("/product/:product_id", requestTime, async (req, res) => {
   } catch (error) {
     res.status(error.code || 500).send(error.message);
   }
+});
+
+router.post("/sell", requestTime, async (req, res) => {
+  const productData = req.body;
+  await sellProduct(productData);
+  res.send("Producto agregado con éxito");
 });
 
 module.exports = router;

@@ -212,6 +212,24 @@ const getSelectedProduct = async (product_id) => {
   return rowCount[0];
 };
 
+const sellProduct = async (productData) => {
+  try {
+    const { titulo, descripcion, precio, image, categoria, region, vendido, user_id } = productData;
+    const values = [titulo, descripcion, precio, image, categoria, region, vendido, user_id];
+    const query = `
+    INSERT INTO
+    products (
+      titulo, descripcion, precio, image, categoria, region, vendido, user_id
+    )
+    VALUES ( $1, $2, $3, $4, $5, $6, $7, $8 );
+    `;
+
+    await pool.query(query, values);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   getUser,
   verifyCredentials,
@@ -231,5 +249,6 @@ module.exports = {
   getPurchasedProducts,
   getSeller,
   getSelectedProduct,
-  productSelled
+  productSelled,
+  sellProduct,
 };

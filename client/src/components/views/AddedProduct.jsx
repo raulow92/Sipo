@@ -11,7 +11,6 @@ const AddedProduct = () => {
         <div className="container p-8 mx-auto">
             <div className="bg-white rounded-lg shadow-md p-8 my-6 text-center w-full">
                 <h2 className="font-bold text-2xl text-sky-400">Artículo publicado con éxito</h2>
-                <p className="text-xl font-medium my-5">NOMBRE ARTICULO</p>
             </div>
             <div className="flex justify-center">
                 <button onClick={handleClick} className="font-medium bg-green-400 px-6 py-3 rounded-lg text-white">Publicar otro producto</button>
