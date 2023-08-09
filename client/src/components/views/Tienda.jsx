@@ -23,6 +23,7 @@ const Tienda = () => {
     try {
       const { data: productList } = await axios.get(url + endpoint);
       setProducts(productList);
+      console.log(productList);
     } catch (error) {
       console.log(error);
     } finally {
@@ -128,7 +129,7 @@ const Tienda = () => {
   };
 
   const filteredProducts = products.filter((product) => {
-    return product.user_id != usuario.data.user_id;
+    return product.user_id != usuario.data.user_id && product.vendido === false
   });
 
   return (

@@ -22,6 +22,7 @@ const {
   getPurchasedProducts,
   getSeller,
   getSelectedProduct,
+  productSelled,
 } = require("../queries/queries");
 
 const { requestTime, validateToken } = require("../middleware/middleware");
@@ -174,6 +175,7 @@ router.patch("/update", requestTime, async (req, res) => {
 router.post("/buy", requestTime, async (req, res) => {
   const { product_id, user_id } = req.body;
   await buyProduct(product_id, user_id);
+  await productSelled(product_id);
   res.send("Producto comprado con éxito");
 });
 

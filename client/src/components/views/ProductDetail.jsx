@@ -18,7 +18,7 @@ const ProductDetail = () => {
     const navigate = useNavigate();
     const { usuario } = useContext(Context);
 
-    const handleClick = async (e) => {
+    const handleBuy = async (e) => {
         e.preventDefault();
         const endpoint = `buy`;
         try {
@@ -80,7 +80,7 @@ const ProductDetail = () => {
                     <div className="flex justify-between item-center my-6">
                         <button
                             id={product_id}
-                            onClick={handleClick}
+                            onClick={handleBuy}
                             className="bg-sky-400 hover:bg-sky-500 w-5/6 py-3 text-white font-medium rounded-lg"
                         >
                             Comprar

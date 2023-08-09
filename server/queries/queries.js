@@ -178,6 +178,13 @@ const buyProduct = async (product_id, user_id) => {
   await pool.query(consulta, values);
 };
 
+const productSelled = async (product_id) => {
+  const values = [product_id];
+  const consulta =
+    "UPDATE products SET vendido = true WHERE product_id = $1";
+  await pool.query(consulta, values);
+};
+
 const getPurchasedProducts = async (user_id) => {
   const values = [user_id];
   const consulta =
@@ -223,5 +230,6 @@ module.exports = {
   buyProduct,
   getPurchasedProducts,
   getSeller,
-  getSelectedProduct
+  getSelectedProduct,
+  productSelled
 };
