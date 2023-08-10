@@ -48,7 +48,7 @@ const SellerProductCard = ({ id, img, titulo, descripcion, precio }) => {
         </p>
         <p
           onClick={deleteProduct}
-          className="text-lg font-bold mt-2 mx-2 bg-white text-red-500 hover:cursor-pointer"
+          className="text-lg font-bold mt-2 mx-2 bg-white text-red-400 hover:text-red-500 hover:cursor-pointer hover:scale-110 ease-in-out duration-300"
         >
           Eliminar
         </p>

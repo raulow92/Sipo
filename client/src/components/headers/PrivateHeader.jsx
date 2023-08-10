@@ -34,7 +34,7 @@ const PrivateHeader = () => {
   return (
     <header className="flex mx-auto py-4 px-6 container items-center justify-between">
       <Link to="/">
-        <img src={LogoSipo} alt="Logo Sipo" className="w-32 md:w-40" />
+        <img src={LogoSipo} alt="Logo Sipo" className="w-32 md:w-40 hover:scale-[1.05] ease-in-out duration-300" />
       </Link>
       <button className="md:hidden" onClick={handleOpenMenu}>
         <MenuIcon />
@@ -48,14 +48,14 @@ const PrivateHeader = () => {
         </button>
         <Link
           to="/tienda"
-          className="md:font-normal hover:text-sky-400"
+          className="md:font-normal hover:text-sky-400 hover:scale-[1.05] ease-in-out duration-300"
           onClick={handleCloseMenu}
         >
           Tienda
         </Link>
         <Link
           to="/dashboard"
-          className="md:font-normal hover:text-sky-400"
+          className="md:font-normal hover:text-sky-400 hover:scale-[1.05] ease-in-out duration-300"
           onClick={handleCloseMenu}
         >
           Dashboard
@@ -65,18 +65,18 @@ const PrivateHeader = () => {
           onClick={[logout, handleCloseMenu]}
           className="hidden md:flex"
         >
-          <LogOutIcon className="w-6 cursor-pointer hover:opacity-80" />
+          <LogOutIcon className="w-6 cursor-pointer hover:opacity-80 hover:scale-110 ease-in-out duration-300" />
         </Link>
         <Link
           to="/"
-          className="md:font-normal hover:text-sky-400 md:hidden"
+          className="md:font-normal hover:text-sky-400 md:hidden hover:scale-[1.05] ease-in-out duration-300"
           onClick={[logout, handleCloseMenu]}
         >
           Cerrar sesión
         </Link>
         <Link
           to="/vender"
-          className="md:bg-sky-400 md:text-white md:px-5 md:py-3 md:rounded-xl md:hover:bg-sky-500"
+          className="md:bg-sky-400 md:text-white md:px-5 md:py-3 md:rounded-xl hover:text-sky-400 md:hover:text-white md:hover:bg-sky-500 hover:scale-[1.05] ease-in-out duration-300"
           onClick={handleCloseMenu}
         >
           Publicar venta

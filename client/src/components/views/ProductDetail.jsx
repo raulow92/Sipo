@@ -154,7 +154,7 @@ const ProductDetail = () => {
                             <button
                                 id={product_id}
                                 onClick={handleBuy}
-                                className="bg-sky-400 hover:bg-sky-500 w-5/6 py-3 text-white font-medium rounded-lg"
+                                className="bg-sky-400 hover:bg-sky-500 w-5/6 py-3 text-white font-medium rounded-lg hover:scale-[1.02] ease-in-out duration-300"
                             >
                                 Comprar
                             </button>
@@ -167,7 +167,7 @@ const ProductDetail = () => {
                             filled={heartFill}
                             stroke={heartStroke}
                             onClick={handleHeartClick}
-                            className="w-10 mx-auto cursor-pointer"
+                            className="w-10 mx-auto cursor-pointer hover:scale-125 ease-in-out duration-300"
                         />
                     </div>
                 </div>

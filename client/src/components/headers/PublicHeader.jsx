@@ -16,7 +16,7 @@ const PublicHeader = () => {
 
     return (
         <header className="flex mx-auto py-4 px-6 container items-center justify-between">
-            <Link to="/"><img src={LogoSipo} alt="Logo Sipo" className="w-32 md:w-40" /></Link>
+            <Link to="/"><img src={LogoSipo} alt="Logo Sipo" className="w-32 md:w-40 hover:scale-[1.05] ease-in-out duration-300" /></Link>
             <button className="md:hidden" onClick={handleOpenMenu}>
                 <MenuIcon />
             </button>
@@ -24,11 +24,11 @@ const PublicHeader = () => {
                 <button className=" md:hidden self-end mt-10 mb-20" onClick={handleCloseMenu}>
                     <CloseIcon />
                 </button>
-                <Link to="/signup" className="md:font-normal hover:text-sky-400" onClick={handleCloseMenu}>Crear cuenta</Link>
-                <Link to="/login" className="md:font-normal hover:text-sky-400" onClick={handleCloseMenu}>Iniciar sesión</Link>
+                <Link to="/signup" className="md:font-normal hover:text-sky-400 hover:scale-[1.05] ease-in-out duration-300" onClick={handleCloseMenu}>Crear cuenta</Link>
+                <Link to="/login" className="md:font-normal hover:text-sky-400 hover:scale-[1.05] ease-in-out duration-300" onClick={handleCloseMenu}>Iniciar sesión</Link>
                 <Link
                     to="/login"
-                    className="md:bg-sky-400 md:hover:bg-sky-500 md:text-white md:px-5 md:py-3 md:rounded-xl"
+                    className="md:bg-sky-400 md:hover:bg-sky-500 md:text-white md:px-5 md:py-3 md:rounded-xl hover:scale-[1.05] ease-in-out duration-300"
                     onClick={handleCloseMenu}
                 >
                     Publicar venta

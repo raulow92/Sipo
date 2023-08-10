@@ -86,7 +86,7 @@ const SignUpMain = () => {
             onClick={registroUsuario}
               type="submit"
               value="Regístrate"
-              className="hover:cursor-pointer bg-green-400 hover:bg-green-600 font-medium rounded-xl text-white p-4 mt-5"
+              className="hover:cursor-pointer bg-green-400 hover:bg-green-600 font-medium rounded-xl text-white p-4 mt-5 hover:scale-[1.02] ease-in-out duration-300"
             ></input>
           </div>
         </form>

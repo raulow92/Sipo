@@ -114,7 +114,7 @@ const MisDatos = () => {
                     </div>
                     <div className="flex items-center justify-between mb-6">
                         <label
-                            htmlFor="email"
+                            htmlFor="pass"
                             className="hidden xl:block mr-[-33px]"
                         >
                             Nueva <br /> Contraseña
@@ -146,7 +146,7 @@ const MisDatos = () => {
                         onClick={handleUpdateData}
                         type="submit"
                         value="Guardar cambios"
-                        className="hover:cursor-pointer bg-green-400 hover:bg-green-600 font-medium rounded-xl text-white p-4"
+                        className="hover:cursor-pointer bg-green-400 hover:bg-green-600 font-medium rounded-xl text-white p-4 hover:scale-[1.02] ease-in-out duration-300"
                     ></input>
                 </div>
             </form>

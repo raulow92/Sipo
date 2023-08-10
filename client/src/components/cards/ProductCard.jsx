@@ -51,7 +51,7 @@ const ProductCard = ({
 
   return (
     <div
-      className="flex flex-col justify-between bg-white h-90 p-3 rounded-xl relative hover:cursor-pointer shadow-md"
+      className="flex flex-col justify-between bg-white h-90 p-3 rounded-xl relative hover:cursor-pointer shadow-md hover:scale-[1.03] hover:shadow-2xl ease-in-out duration-300"
       id={id}
       onClick={handleClick}
     >
@@ -59,7 +59,7 @@ const ProductCard = ({
         <img className="rounded-xl xl:h-44 w-full" src={img} alt="img" />
         <HeartIcon
           id={id}
-          className="w-6 absolute right-6 top-6 hover:text-red-600"
+          className="w-6 absolute right-6 top-6 hover:scale-125 ease-in-out duration-300"
           filled={heartFill}
           stroke={heartStroke}
           onClick={handleHeartClick}

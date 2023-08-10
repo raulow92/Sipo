@@ -96,7 +96,7 @@ const LogInMain = () => {
             />
             <button
               onClick={inicioSesion}
-              className="hover:cursor-pointer bg-sky-400 hover:bg-sky-500 font-medium rounded-xl text-white p-4 mt-5"
+              className="hover:cursor-pointer bg-sky-400 hover:bg-sky-500 font-medium rounded-xl text-white p-4 mt-5 hover:scale-[1.02] ease-in-out duration-300"
             >
               Iniciar sesión
             </button>
@@ -106,7 +106,7 @@ const LogInMain = () => {
             <div className="border-solid border-t-2 border-gray-300 mt-5"></div>
             <button
               onClick={toSignUp}
-              className="bg-green-400 hover:bg-green-500 self-center px-6 font-medium rounded-xl text-white p-4 mt-8"
+              className="bg-green-400 hover:bg-green-500 self-center px-6 font-medium rounded-xl text-white p-4 mt-8 hover:scale-[1.02] ease-in-out duration-300"
             >
               Crear cuenta nueva
             </button>

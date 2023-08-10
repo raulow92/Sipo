@@ -144,7 +144,7 @@ const Tienda = () => {
             id="buscador"
             type="text"
             placeholder="Estoy buscando..."
-            className="border border-gray-300 rounded-xl pl-14 h-12 pr-20 w-full"
+            className="border border-gray-300 rounded-xl pl-14 h-12 pr-20 w-full hover:bg-gray-100 ease-in-out duration-300"
             onChange={handleFilters}
           />
         </div>
@@ -153,7 +153,7 @@ const Tienda = () => {
           <select
             name="categoria"
             id="categoria"
-            className="appearance-none border border-gray-300 rounded-xl pl-14 text-gray-600 h-12 pr-20 w-full bg-white"
+            className="appearance-none border border-gray-300 rounded-xl pl-14 text-gray-600 h-12 pr-20 w-full bg-white hover:cursor-pointer hover:bg-gray-100 ease-in-out duration-300"
             onChange={handleFilters}
           >
             <option value="all" defaultChecked hidden>
@@ -176,7 +176,7 @@ const Tienda = () => {
             onChange={handleFilters}
             name="region"
             id="region"
-            className="appearance-none border border-gray-300 rounded-xl pl-14 text-gray-600 h-12 pr-20 w-full bg-white"
+            className="appearance-none border border-gray-300 rounded-xl pl-14 text-gray-600 h-12 pr-20 w-full bg-white hover:cursor-pointer hover:bg-gray-100 ease-in-out duration-300"
           >
             <option value="chile">Todo Chile</option>
             <option value="metropolitana">Metropolitana</option>
