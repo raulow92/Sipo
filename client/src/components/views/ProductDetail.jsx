@@ -122,7 +122,6 @@ const ProductDetail = () => {
         handleHeartFill();
     }, []);
 
-
     if (!product) return <p>Loading...</p>;
 
     const { product_id, image, titulo, descripcion, precio } = product;
@@ -151,13 +150,19 @@ const ProductDetail = () => {
                         </p>
                     </div>
                     <div className="flex justify-between item-center my-6">
-                        <button
-                            id={product_id}
-                            onClick={handleBuy}
-                            className="bg-sky-400 hover:bg-sky-500 w-5/6 py-3 text-white font-medium rounded-lg"
-                        >
-                            Comprar
-                        </button>
+                        {!product.vendido ? (
+                            <button
+                                id={product_id}
+                                onClick={handleBuy}
+                                className="bg-sky-400 hover:bg-sky-500 w-5/6 py-3 text-white font-medium rounded-lg"
+                            >
+                                Comprar
+                            </button>
+                        ) : (
+                            <button className="bg-gray-300 w-5/6 py-3 text-gray-200 font-medium rounded-lg cursor-not-allowed">
+                                Comprado
+                            </button>
+                        )}
                         <HeartIcon
                             filled={heartFill}
                             stroke={heartStroke}
