@@ -113,7 +113,7 @@ VALUES
 		'biobio',
 		'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.',
 		379365,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/1/300/200',
 		FALSE,
 		3
 	);
@@ -138,7 +138,7 @@ VALUES
 		'valparaiso',
 		'Integer ac neque.',
 		381017,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/2/300/200',
 		FALSE,
 		1
 	);
@@ -163,7 +163,7 @@ VALUES
 		'coquimbo',
 		'Morbi non lectus.',
 		323607,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/3/300/200',
 		FALSE,
 		5
 	);
@@ -188,7 +188,7 @@ VALUES
 		'nuble',
 		'Praesent id massa id nisl venenatis lacinia.',
 		375529,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/4/300/200',
 		FALSE,
 		6
 	);
@@ -213,7 +213,7 @@ VALUES
 		'valparaiso',
 		'Duis ac nibh.',
 		221729,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/5/300/200',
 		FALSE,
 		6
 	);
@@ -238,7 +238,7 @@ VALUES
 		'metropolitana',
 		'Aenean lectus.',
 		180362,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/6/300/200',
 		FALSE,
 		5
 	);
@@ -263,7 +263,7 @@ VALUES
 		'nuble',
 		'Nunc purus.',
 		39800,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/7/300/200',
 		FALSE,
 		3
 	);
@@ -288,7 +288,7 @@ VALUES
 		'losrios',
 		'Suspendisse accumsan tortor quis turpis.',
 		129633,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/8/300/200',
 		FALSE,
 		4
 	);
@@ -313,7 +313,7 @@ VALUES
 		'loslagos',
 		'Fusce posuere felis sed lacus.',
 		412705,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/9/300/200',
 		FALSE,
 		6
 	);
@@ -338,7 +338,7 @@ VALUES
 		'antofagasta',
 		'Nulla ac enim.',
 		417285,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/10/300/200',
 		FALSE,
 		1
 	);
@@ -363,7 +363,7 @@ VALUES
 		'arica',
 		'Curabitur gravida nisi at nibh.',
 		356506,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/11/300/200',
 		FALSE,
 		6
 	);
@@ -388,7 +388,7 @@ VALUES
 		'ohiggins',
 		'Morbi non quam nec dui luctus rutrum.',
 		209588,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/12/300/200',
 		FALSE,
 		6
 	);
@@ -413,7 +413,7 @@ VALUES
 		'loslagos',
 		'Curabitur gravida nisi at nibh.',
 		245671,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/13/300/200',
 		FALSE,
 		2
 	);
@@ -438,7 +438,7 @@ VALUES
 		'loslagos',
 		'Curabitur gravida nisi at nibh.',
 		183034,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/14/300/200',
 		FALSE,
 		6
 	);
@@ -463,7 +463,7 @@ VALUES
 		'losrios',
 		'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.',
 		345477,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/15/300/200',
 		FALSE,
 		1
 	);
@@ -488,7 +488,7 @@ VALUES
 		'magallanes',
 		'Maecenas tincidunt lacus at velit.',
 		135623,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/16/300/200',
 		FALSE,
 		6
 	);
@@ -513,7 +513,7 @@ VALUES
 		'maule',
 		'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.',
 		47780,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/17/300/200',
 		FALSE,
 		2
 	);
@@ -538,7 +538,7 @@ VALUES
 		'maule',
 		'In hac habitasse platea dictumst.',
 		205283,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/18/300/200',
 		FALSE,
 		2
 	);
@@ -563,7 +563,7 @@ VALUES
 		'coquimbo',
 		'Cras in purus eu magna vulputate luctus.',
 		28937,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/19/300/200',
 		FALSE,
 		4
 	);
@@ -588,7 +588,7 @@ VALUES
 		'araucania',
 		'Proin at turpis a pede posuere nonummy.',
 		409778,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/20/300/200',
 		FALSE,
 		5
 	);
@@ -613,7 +613,7 @@ VALUES
 		'atacama',
 		'Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.',
 		434123,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/21/300/200',
 		FALSE,
 		2
 	);
@@ -638,7 +638,7 @@ VALUES
 		'araucania',
 		'In blandit ultrices enim.',
 		122116,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/22/300/200',
 		FALSE,
 		4
 	);
@@ -663,7 +663,7 @@ VALUES
 		'nuble',
 		'In sagittis dui vel nisl.',
 		478174,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/23/300/200',
 		FALSE,
 		6
 	);
@@ -688,7 +688,7 @@ VALUES
 		'maule',
 		'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.',
 		305656,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/24/300/200',
 		FALSE,
 		4
 	);
@@ -713,7 +713,7 @@ VALUES
 		'ohiggins',
 		'Mauris ullamcorper purus sit amet nulla.',
 		490647,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/25/300/200',
 		FALSE,
 		1
 	);
@@ -738,7 +738,7 @@ VALUES
 		'araucania',
 		'Nulla tellus.',
 		87991,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/26/300/200',
 		FALSE,
 		6
 	);
@@ -763,7 +763,7 @@ VALUES
 		'ohiggins',
 		'Curabitur at ipsum ac tellus semper interdum.',
 		392929,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/27/300/200',
 		FALSE,
 		6
 	);
@@ -788,7 +788,7 @@ VALUES
 		'aysen',
 		'Mauris lacinia sapien quis libero.',
 		242670,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/28/300/200',
 		FALSE,
 		4
 	);
@@ -813,7 +813,7 @@ VALUES
 		'aysen',
 		'Ut tellus.',
 		355168,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/29/300/200',
 		FALSE,
 		1
 	);
@@ -838,7 +838,7 @@ VALUES
 		'magallanes',
 		'Proin risus.',
 		34103,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/30/300/200',
 		FALSE,
 		1
 	);
@@ -863,7 +863,7 @@ VALUES
 		'valparaiso',
 		'Fusce consequat.',
 		306469,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/31/300/200',
 		FALSE,
 		6
 	);
@@ -888,7 +888,7 @@ VALUES
 		'maule',
 		'Nulla tempus.',
 		341866,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/32/300/200',
 		FALSE,
 		4
 	);
@@ -913,7 +913,7 @@ VALUES
 		'magallanes',
 		'Maecenas rhoncus aliquam lacus.',
 		98429,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/33/300/200',
 		FALSE,
 		2
 	);
@@ -938,7 +938,7 @@ VALUES
 		'aysen',
 		'Pellentesque viverra pede ac diam.',
 		27764,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/34/300/200',
 		FALSE,
 		5
 	);
@@ -963,7 +963,7 @@ VALUES
 		'antofagasta',
 		'Morbi quis tortor id nulla ultrices aliquet.',
 		417157,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/35/300/200',
 		FALSE,
 		6
 	);
@@ -988,7 +988,7 @@ VALUES
 		'metropolitana',
 		'Maecenas ut massa quis augue luctus tincidunt.',
 		410350,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/36/300/200',
 		FALSE,
 		3
 	);
@@ -1013,7 +1013,7 @@ VALUES
 		'ohiggins',
 		'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.',
 		131335,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/37/300/200',
 		FALSE,
 		5
 	);
@@ -1038,7 +1038,7 @@ VALUES
 		'valparaiso',
 		'Aliquam erat volutpat.',
 		253914,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/38/300/200',
 		FALSE,
 		2
 	);
@@ -1063,7 +1063,7 @@ VALUES
 		'arica',
 		'Ut at dolor quis odio consequat varius.',
 		485286,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/39/300/200',
 		FALSE,
 		6
 	);
@@ -1088,7 +1088,7 @@ VALUES
 		'atacama',
 		'Vivamus in felis eu sapien cursus vestibulum.',
 		71657,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/40/300/200',
 		FALSE,
 		6
 	);
@@ -1113,7 +1113,7 @@ VALUES
 		'aysen',
 		'Maecenas rhoncus aliquam lacus.',
 		250330,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/41/300/200',
 		FALSE,
 		4
 	);
@@ -1138,7 +1138,7 @@ VALUES
 		'valparaiso',
 		'Morbi vel lectus in quam fringilla rhoncus.',
 		190345,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/42/300/200',
 		FALSE,
 		6
 	);
@@ -1163,7 +1163,7 @@ VALUES
 		'metropolitana',
 		'Curabitur at ipsum ac tellus semper interdum.',
 		285246,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/43/300/200',
 		FALSE,
 		5
 	);
@@ -1188,7 +1188,7 @@ VALUES
 		'loslagos',
 		'Nulla tempus.',
 		398464,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/44/300/200',
 		FALSE,
 		5
 	);
@@ -1213,7 +1213,7 @@ VALUES
 		'aysen',
 		'Nulla nisl.',
 		468675,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/45/300/200',
 		FALSE,
 		1
 	);
@@ -1238,7 +1238,7 @@ VALUES
 		'ohiggins',
 		'Curabitur gravida nisi at nibh.',
 		497663,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/46/300/200',
 		FALSE,
 		1
 	);
@@ -1263,7 +1263,7 @@ VALUES
 		'tarapaca',
 		'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.',
 		342445,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/47/300/200',
 		FALSE,
 		3
 	);
@@ -1288,7 +1288,7 @@ VALUES
 		'antofagasta',
 		'Nulla ac enim.',
 		83594,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/48/300/200',
 		FALSE,
 		5
 	);
@@ -1313,7 +1313,7 @@ VALUES
 		'aysen',
 		'In sagittis dui vel nisl.',
 		409708,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/49/300/200',
 		FALSE,
 		1
 	);
@@ -1338,7 +1338,7 @@ VALUES
 		'antofagasta',
 		'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.',
 		276046,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/50/300/200',
 		FALSE,
 		1
 	);
@@ -1363,7 +1363,7 @@ VALUES
 		'coquimbo',
 		'Praesent lectus.',
 		443658,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/51/300/200',
 		FALSE,
 		4
 	);
@@ -1388,7 +1388,7 @@ VALUES
 		'loslagos',
 		'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.',
 		181308,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/52/300/200',
 		FALSE,
 		6
 	);
@@ -1413,7 +1413,7 @@ VALUES
 		'loslagos',
 		'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.',
 		472066,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/53/300/200',
 		FALSE,
 		5
 	);
@@ -1438,7 +1438,7 @@ VALUES
 		'loslagos',
 		'Nunc rhoncus dui vel sem.',
 		136783,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/54/300/200',
 		FALSE,
 		5
 	);
@@ -1463,7 +1463,7 @@ VALUES
 		'ohiggins',
 		'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.',
 		471553,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/55/300/200',
 		FALSE,
 		2
 	);
@@ -1488,7 +1488,7 @@ VALUES
 		'nuble',
 		'Donec ut mauris eget massa tempor convallis.',
 		36108,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/56/300/200',
 		FALSE,
 		4
 	);
@@ -1513,7 +1513,7 @@ VALUES
 		'loslagos',
 		'Mauris ullamcorper purus sit amet nulla.',
 		146750,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/57/300/200',
 		FALSE,
 		1
 	);
@@ -1538,7 +1538,7 @@ VALUES
 		'tarapaca',
 		'Vivamus vestibulum sagittis sapien.',
 		395295,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/58/300/200',
 		FALSE,
 		6
 	);
@@ -1563,7 +1563,7 @@ VALUES
 		'arica',
 		'Aliquam sit amet diam in magna bibendum imperdiet.',
 		455447,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/59/300/200',
 		FALSE,
 		3
 	);
@@ -1588,7 +1588,7 @@ VALUES
 		'tarapaca',
 		'Proin at turpis a pede posuere nonummy.',
 		499733,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/60/300/200',
 		FALSE,
 		5
 	);
@@ -1613,7 +1613,7 @@ VALUES
 		'antofagasta',
 		'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.',
 		57853,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/61/300/200',
 		FALSE,
 		2
 	);
@@ -1638,7 +1638,7 @@ VALUES
 		'aysen',
 		'Proin eu mi.',
 		430144,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/62/300/200',
 		FALSE,
 		1
 	);
@@ -1663,7 +1663,7 @@ VALUES
 		'atacama',
 		'Mauris ullamcorper purus sit amet nulla.',
 		137651,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/63/300/200',
 		FALSE,
 		6
 	);
@@ -1688,7 +1688,7 @@ VALUES
 		'ohiggins',
 		'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.',
 		37421,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/64/300/200',
 		FALSE,
 		4
 	);
@@ -1713,7 +1713,7 @@ VALUES
 		'ohiggins',
 		'In hac habitasse platea dictumst.',
 		420835,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/65/300/200',
 		FALSE,
 		3
 	);
@@ -1738,7 +1738,7 @@ VALUES
 		'nuble',
 		'Proin eu mi.',
 		494805,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/66/300/200',
 		FALSE,
 		1
 	);
@@ -1763,7 +1763,7 @@ VALUES
 		'antofagasta',
 		'Aenean sit amet justo.',
 		494634,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/67/300/200',
 		FALSE,
 		6
 	);
@@ -1788,7 +1788,7 @@ VALUES
 		'valparaiso',
 		'Nulla tempus.',
 		440939,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/68/300/200',
 		FALSE,
 		4
 	);
@@ -1813,7 +1813,7 @@ VALUES
 		'tarapaca',
 		'In eleifend quam a odio.',
 		300987,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/69/300/200',
 		FALSE,
 		6
 	);
@@ -1838,7 +1838,7 @@ VALUES
 		'metropolitana',
 		'Nulla ut erat id mauris vulputate elementum.',
 		161685,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/70/300/200',
 		FALSE,
 		4
 	);
@@ -1863,7 +1863,7 @@ VALUES
 		'loslagos',
 		'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.',
 		289093,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/71/300/200',
 		FALSE,
 		1
 	);
@@ -1888,7 +1888,7 @@ VALUES
 		'nuble',
 		'Nam dui.',
 		479679,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/72/300/200',
 		FALSE,
 		5
 	);
@@ -1913,7 +1913,7 @@ VALUES
 		'aysen',
 		'Etiam vel augue.',
 		406047,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/73/300/200',
 		FALSE,
 		1
 	);
@@ -1938,7 +1938,7 @@ VALUES
 		'aysen',
 		'Curabitur convallis.',
 		369043,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/74/300/200',
 		FALSE,
 		3
 	);
@@ -1963,7 +1963,7 @@ VALUES
 		'biobio',
 		'In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.',
 		120220,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/75/300/200',
 		FALSE,
 		2
 	);
@@ -1988,7 +1988,7 @@ VALUES
 		'nuble',
 		'Vivamus in felis eu sapien cursus vestibulum.',
 		147494,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/76/300/200',
 		FALSE,
 		5
 	);
@@ -2013,7 +2013,7 @@ VALUES
 		'nuble',
 		'In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.',
 		40887,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/77/300/200',
 		FALSE,
 		6
 	);
@@ -2038,7 +2038,7 @@ VALUES
 		'valparaiso',
 		'Aliquam erat volutpat.',
 		80859,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/78/300/200',
 		FALSE,
 		4
 	);
@@ -2063,7 +2063,7 @@ VALUES
 		'biobio',
 		'Vivamus tortor.',
 		52116,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/79/300/200',
 		FALSE,
 		5
 	);
@@ -2088,7 +2088,7 @@ VALUES
 		'atacama',
 		'Suspendisse accumsan tortor quis turpis.',
 		480522,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/80/300/200',
 		FALSE,
 		2
 	);
@@ -2113,7 +2113,7 @@ VALUES
 		'atacama',
 		'Maecenas rhoncus aliquam lacus.',
 		474503,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/81/300/200',
 		FALSE,
 		4
 	);
@@ -2138,7 +2138,7 @@ VALUES
 		'tarapaca',
 		'Cras non velit nec nisi vulputate nonummy.',
 		477966,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/82/300/200',
 		FALSE,
 		2
 	);
@@ -2163,7 +2163,7 @@ VALUES
 		'atacama',
 		'Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.',
 		159673,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/83/300/200',
 		FALSE,
 		4
 	);
@@ -2188,7 +2188,7 @@ VALUES
 		'biobio',
 		'Aliquam sit amet diam in magna bibendum imperdiet.',
 		347514,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/84/300/200',
 		FALSE,
 		1
 	);
@@ -2213,7 +2213,7 @@ VALUES
 		'aysen',
 		'Aliquam erat volutpat.',
 		395217,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/85/300/200',
 		FALSE,
 		2
 	);
@@ -2238,7 +2238,7 @@ VALUES
 		'metropolitana',
 		'Nullam porttitor lacus at turpis.',
 		135993,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/87/300/200',
 		FALSE,
 		3
 	);
@@ -2263,7 +2263,7 @@ VALUES
 		'metropolitana',
 		'In est risus, auctor sed, tristique in, tempus sit amet, sem.',
 		495196,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/88/300/200',
 		FALSE,
 		2
 	);
@@ -2288,7 +2288,7 @@ VALUES
 		'tarapaca',
 		'Vivamus tortor.',
 		494193,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/89/300/200',
 		FALSE,
 		1
 	);
@@ -2313,7 +2313,7 @@ VALUES
 		'ohiggins',
 		'Vestibulum rutrum rutrum neque.',
 		445448,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/90/300/200',
 		FALSE,
 		4
 	);
@@ -2338,7 +2338,7 @@ VALUES
 		'valparaiso',
 		'Proin at turpis a pede posuere nonummy.',
 		74775,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/91/300/200',
 		FALSE,
 		5
 	);
@@ -2363,7 +2363,7 @@ VALUES
 		'valparaiso',
 		'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.',
 		353456,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/92/300/200',
 		FALSE,
 		4
 	);
@@ -2388,7 +2388,7 @@ VALUES
 		'coquimbo',
 		'Quisque ut erat.',
 		298625,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/93/300/200',
 		FALSE,
 		3
 	);
@@ -2413,7 +2413,7 @@ VALUES
 		'valparaiso',
 		'Proin interdum mauris non ligula pellentesque ultrices.',
 		39639,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/94/300/200',
 		FALSE,
 		2
 	);
@@ -2438,7 +2438,7 @@ VALUES
 		'atacama',
 		'Proin eu mi.',
 		415844,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/95/300/200',
 		FALSE,
 		5
 	);
@@ -2463,7 +2463,7 @@ VALUES
 		'nuble',
 		'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.',
 		194354,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/96/300/200',
 		FALSE,
 		5
 	);
@@ -2488,7 +2488,7 @@ VALUES
 		'metropolitana',
 		'Nam dui.',
 		499803,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/98/300/200',
 		FALSE,
 		3
 	);
@@ -2513,7 +2513,7 @@ VALUES
 		'metropolitana',
 		'Morbi a ipsum.',
 		347627,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/99/300/200',
 		FALSE,
 		2
 	);
@@ -2538,7 +2538,7 @@ VALUES
 		'atacama',
 		'Duis at velit eu est congue elementum.',
 		98317,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/100/300/200',
 		FALSE,
 		3
 	);
@@ -2563,7 +2563,7 @@ VALUES
 		'maule',
 		'Etiam pretium iaculis justo.',
 		184335,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/101/300/200',
 		FALSE,
 		6
 	);
@@ -2588,7 +2588,7 @@ VALUES
 		'antofagasta',
 		'Integer ac leo.',
 		70017,
-		'https://picsum.photos/seed/picsum/300/200',
+		'https://picsum.photos/id/102/300/200',
 		FALSE,
 		5
 	);
@@ -2608,7 +2608,7 @@ CREATE TABLE
 		buy_id SERIAL PRIMARY KEY,
 		product_id INT,
 		user_id INT,
-		CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES products (product_id),
-		CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users (user_id)
+		CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES products (product_id) ON DELETE CASCADE,
+		CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
 	);
 

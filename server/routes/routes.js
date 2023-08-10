@@ -30,6 +30,10 @@ const { requestTime, validateToken } = require("../middleware/middleware");
 
 router.use(express.json());
 
+router.get('/', (req, res) => {
+  res.status(200).send('Hello World!')
+});
+
 router.get("/users", requestTime, validateToken, async (req, res) => {
   try {
     const auth = req.header("Authorization");
@@ -46,7 +50,7 @@ router.post("/users", requestTime, async (req, res) => {
   try {
     const user = req.body;
     await userRegister(user);
-    res.send("Usuario creado con éxito");
+    res.status(201).send("Usuario creado con éxito");
   } catch (error) {
     res.status(500).send(error.message);
   }
@@ -101,7 +105,8 @@ router.delete(
   async (req, res) => {
     try {
       const { user_id, product_id } = req.params;
-      await deleteUserProduct(user_id, product_id);
+      const data = await deleteUserProduct(user_id, product_id);
+      console.log(data)
       res.send("Producto eliminado con éxito");
     } catch (error) {
       res.status(error.code || 500).send(error.message);
@@ -163,10 +168,17 @@ router.get("/user/:user_id/favorites", requestTime, async (req, res) => {
   }
 });
 
-router.patch("/update", requestTime, async (req, res) => {
+router.patch("/update/:user_id", requestTime, async (req, res) => {
   try {
+    const { userID } = req.params;
     const userData = req.body;
-    await updateUser(userData);
+    if (userID != userData.id)
+    return res
+        .status(400)
+        .send({
+            message: "El id del parámetro no coincide con el id usuario recibido",
+        });
+    await updateUser(userID, userData);
     res.send("Información de usuario actualizada con éxito");
   } catch (error) {
     res.status(error.code || 500).send(error.message);

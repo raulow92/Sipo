@@ -1,6 +1,6 @@
 const express = require("express");
 require("dotenv").config();
-const routes = require('./routes/routes')
+const routes = require("./routes/routes");
 const app = express();
 const cors = require("cors");
 
@@ -10,4 +10,11 @@ app.use(cors());
 
 app.use("/", routes);
 
-app.listen(PORT, console.log(`Servidor arriba en el puerto ${PORT}`));
+
+
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, console.log(`Servidor arriba en el puerto ${PORT}`));
+}
+
+module.exports = app
+

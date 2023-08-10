@@ -6,6 +6,7 @@ const getUser = async (email) => {
   const values = [email];
   const consulta = "SELECT * FROM users WHERE email = $1";
   const { rows: rowCount } = await pool.query(consulta, values);
+  console.log(rowCount)
   if (!rowCount) throw { code: 404, message: "Usuario no encontrado" };
   return rowCount[0];
 };
@@ -43,9 +44,9 @@ const updatePassword = async (user) => {
   await pool.query(consulta, values);
 };
 
-const updateUser = async (userData) => {
+const updateUser = async (userID, userData) => {
   try {
-    const { nombre, apellidos, pass, image, id } = userData;
+    const {nombre, apellidos, pass, image} = userData;
     const passwordEncriptada = bcrypt.hashSync(pass);
     const query = `
       UPDATE users
@@ -53,16 +54,16 @@ const updateUser = async (userData) => {
       WHERE user_id = $5
     `;
 
-    await pool.query(query, [nombre, apellidos, passwordEncriptada, image, id]);
+    await pool.query(query, [nombre, apellidos, passwordEncriptada, image, userID]);
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const getProducts = async () => {
   const consulta = "SELECT * FROM products";
   const { rows: rowCount } = await pool.query(consulta);
-  if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
+  if (rowCount.length === 0) throw { code: 404, message: "Productos no encontrados" };
   return rowCount;
 };
 
@@ -70,7 +71,7 @@ const getUserProducts = async (user_id) => {
   const values = [user_id];
   const consulta = "SELECT * from products WHERE user_id = $1";
   const { rows: rowCount } = await pool.query(consulta, values);
-  if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
+  if (rowCount.length === 0) throw { code: 404, message: "Productos no encontrados" };
   return rowCount;
 };
 
@@ -78,7 +79,9 @@ const deleteUserProduct = async (user, product) => {
   const values = [user, product];
   const consulta =
     "DELETE FROM products WHERE user_id = $1 AND product_id = $2";
-  await pool.query(consulta, values);
+  const { rows: rowCount } = await pool.query(consulta, values);
+  if (rowCount.length === 0) throw { code: 404, message: "Producto no encontrado" };
+  return rowCount;
 };
 
 const getFilteredProducts = async ({ categoria, region, buscador }) => {
@@ -173,15 +176,13 @@ const deleteUserFavorite = async (user, product) => {
 
 const buyProduct = async (product_id, user_id) => {
   const values = [product_id, user_id];
-  const consulta =
-    "INSERT INTO buys (product_id, user_id) values ($1, $2)";
+  const consulta = "INSERT INTO buys (product_id, user_id) values ($1, $2)";
   await pool.query(consulta, values);
 };
 
 const productSelled = async (product_id) => {
   const values = [product_id];
-  const consulta =
-    "UPDATE products SET vendido = true WHERE product_id = $1";
+  const consulta = "UPDATE products SET vendido = true WHERE product_id = $1";
   await pool.query(consulta, values);
 };
 
@@ -194,6 +195,14 @@ const getPurchasedProducts = async (user_id) => {
   return rowCount;
 };
 
+/* const getUserPurchase = async (user_id) => {
+  const values = [user_id];
+  const consulta = "SELECT * from buys WHERE user_id = $1";
+  const { rows: rowCount } = await pool.query(consulta, values);
+  if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
+  return rowCount;
+}; */
+
 const getSeller = async (product_id) => {
   const values = [product_id];
   const consulta =
@@ -205,8 +214,7 @@ const getSeller = async (product_id) => {
 
 const getSelectedProduct = async (product_id) => {
   const values = [product_id];
-  const consulta =
-    "SELECT * FROM products WHERE product_id = $1";
+  const consulta = "SELECT * FROM products WHERE product_id = $1";
   const { rows: rowCount } = await pool.query(consulta, values);
   if (!rowCount) throw { code: 404, message: "Producto no encontrado" };
   return rowCount[0];
@@ -214,8 +222,26 @@ const getSelectedProduct = async (product_id) => {
 
 const sellProduct = async (productData) => {
   try {
-    const { titulo, descripcion, precio, image, categoria, region, vendido, user_id } = productData;
-    const values = [titulo, descripcion, precio, image, categoria, region, vendido, user_id];
+    const {
+      titulo,
+      descripcion,
+      precio,
+      image,
+      categoria,
+      region,
+      vendido,
+      user_id,
+    } = productData;
+    const values = [
+      titulo,
+      descripcion,
+      precio,
+      image,
+      categoria,
+      region,
+      vendido,
+      user_id,
+    ];
     const query = `
     INSERT INTO
     products (
@@ -228,7 +254,7 @@ const sellProduct = async (productData) => {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 module.exports = {
   getUser,
