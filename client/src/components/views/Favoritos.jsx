@@ -49,14 +49,14 @@ const Favoritos = () => {
         url + endpoint + userEndpoint
       );
       if (!userFavorites) {
-        const { data: response } = await axios.post(url + endpoint, {
+        await axios.post(url + endpoint, {
           user_id: usuario.data.user_id,
           product_id: id,
         });
         getUserData();
       } else {
         try {
-          const { data: response } = await axios.delete(
+          await axios.delete(
             url + endpoint + userEndpoint
           );
           getData()

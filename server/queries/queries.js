@@ -5,10 +5,9 @@ require("dotenv").config();
 const getUser = async (email) => {
   const values = [email];
   const consulta = "SELECT * FROM users WHERE email = $1";
-  const { rows: rowCount } = await pool.query(consulta, values);
-  console.log(rowCount)
+  const { rows: user, rowCount } = await pool.query(consulta, values);
   if (!rowCount) throw { code: 404, message: "Usuario no encontrado" };
-  return rowCount[0];
+  return user[0];
 };
 
 const verifyCredentials = async (email, password) => {
@@ -35,15 +34,6 @@ const userRegister = async (user) => {
   await pool.query(consulta, values);
 };
 
-const updatePassword = async (user) => {
-  let { user_id, password } = user;
-  const passwordEncriptada = bcrypt.hashSync(password);
-  password = passwordEncriptada;
-  const values = [passwordEncriptada, user_id];
-  const consulta = "UPDATE users SET password = $1 WHERE user_id = $2";
-  await pool.query(consulta, values);
-};
-
 const updateUser = async (userData) => {
   try {
     const {nombre, apellidos, pass, image, id} = userData;
@@ -61,26 +51,26 @@ const updateUser = async (userData) => {
 
 const getProducts = async () => {
   const consulta = "SELECT * FROM products";
-  const { rows: rowCount } = await pool.query(consulta);
-  if (rowCount.length === 0) throw { code: 404, message: "Productos no encontrados" };
-  return rowCount;
+  const { rows: products, rowCount } = await pool.query(consulta);
+  if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
+  return products;
 };
 
 const getUserProducts = async (user_id) => {
   const values = [user_id];
   const consulta = "SELECT * from products WHERE user_id = $1";
-  const { rows: rowCount } = await pool.query(consulta, values);
-  if (rowCount.length === 0) throw { code: 404, message: "Productos no encontrados" };
-  return rowCount;
+  const { rows: userProducts, rowCount } = await pool.query(consulta, values);
+  if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
+  return userProducts;
 };
 
 const deleteUserProduct = async (user, product) => {
   const values = [user, product];
   const consulta =
     "DELETE FROM products WHERE user_id = $1 AND product_id = $2";
-  const { rows: productos, rowCount } = await pool.query(consulta, values);
+  const { rows: producto, rowCount } = await pool.query(consulta, values);
   if (!rowCount) throw { code: 404, message: "Producto no encontrado" };
-  return productos;
+  return producto;
 };
 
 const getFilteredProducts = async ({ categoria, region, buscador }) => {
@@ -125,8 +115,8 @@ const getFilteredProducts = async ({ categoria, region, buscador }) => {
         query = subquery;
       }
     }
-    const { rows: products } = await pool.query(query, values);
-    if (!products) throw { code: 404, message: "Productos no encontrados" };
+    const { rows: products, rowCount } = await pool.query(query, values);
+    if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
     return products;
   } catch (e) {
     console.log(e);
@@ -189,9 +179,9 @@ const getPurchasedProducts = async (user_id) => {
   const values = [user_id];
   const consulta =
     "SELECT p.* FROM products p JOIN buys f ON p.product_id = f.product_id WHERE f.user_id = $1";
-  const { rows: rowCount } = await pool.query(consulta, values);
+  const { rows: productos, rowCount } = await pool.query(consulta, values);
   if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
-  return rowCount;
+  return productos;
 };
 
 /* const getUserPurchase = async (user_id) => {
@@ -259,7 +249,6 @@ module.exports = {
   getUser,
   verifyCredentials,
   userRegister,
-  updatePassword,
   updateUser,
   getProducts,
   getUserProducts,

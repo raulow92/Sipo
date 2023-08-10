@@ -7,7 +7,6 @@ const {
   getUser,
   verifyCredentials,
   userRegister,
-  updatePassword,
   updateUser,
   getProducts,
   getUserProducts,
