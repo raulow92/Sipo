@@ -44,17 +44,16 @@ const updatePassword = async (user) => {
   await pool.query(consulta, values);
 };
 
-const updateUser = async (userID, userData) => {
+const updateUser = async (userData) => {
   try {
-    const {nombre, apellidos, pass, image} = userData;
+    const {nombre, apellidos, pass, image, id} = userData;
     const passwordEncriptada = bcrypt.hashSync(pass);
     const query = `
       UPDATE users
       SET nombre = $1, apellidos = $2, password = $3, image = $4
       WHERE user_id = $5
     `;
-
-    await pool.query(query, [nombre, apellidos, passwordEncriptada, image, userID]);
+    await pool.query(query, [nombre, apellidos, passwordEncriptada, image, id]);
   } catch (error) {
     console.log(error);
   }

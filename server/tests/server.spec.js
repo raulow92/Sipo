@@ -17,9 +17,9 @@ describe("Operaciones CRUD en sipo.cl", () => {
         expect(res.status).toBe(404);
       });
 
-      it("Status code 201 al agregar un usuario", async () => {
-        const usuario = {nombre: "Federico", apellidos: "Garcia", email: "fgarcia@mail.com", password: "12345" };
-        const res = await request(server).post("/users").send(usuario);
+      it("Status code 201 al iniciar sesion correctamente", async () => {
+        const usuario = {email: "jbennell5@netvibes.com", password: "12345" };
+        const res = await request(server).post("/login").send(usuario);
         expect(res.status).toBe(201);
       });
 
