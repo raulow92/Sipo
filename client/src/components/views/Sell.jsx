@@ -33,7 +33,9 @@ const Sell = () => {
     const handleSell = async (e) => {
         e.preventDefault();
         const endpoint = "/sell";
+        const { titulo, descripcion, precio, image, categoria, region } = formData;
         try {
+            if (!titulo || !descripcion || !precio || !image || !categoria || !region) return alert("Todos los campos son obligatorios");
             const { data: response } = await axios.post(url + endpoint, formData);
             console.log(response);
             navigate("/agregado");

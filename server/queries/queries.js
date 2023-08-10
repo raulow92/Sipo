@@ -78,9 +78,9 @@ const deleteUserProduct = async (user, product) => {
   const values = [user, product];
   const consulta =
     "DELETE FROM products WHERE user_id = $1 AND product_id = $2";
-  const { rows: rowCount } = await pool.query(consulta, values);
-  if (rowCount.length === 0) throw { code: 404, message: "Producto no encontrado" };
-  return rowCount;
+  const { rows: productos, rowCount } = await pool.query(consulta, values);
+  if (!rowCount) throw { code: 404, message: "Producto no encontrado" };
+  return productos;
 };
 
 const getFilteredProducts = async ({ categoria, region, buscador }) => {

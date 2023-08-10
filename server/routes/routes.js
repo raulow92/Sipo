@@ -30,10 +30,6 @@ const { requestTime, validateToken } = require("../middleware/middleware");
 
 router.use(express.json());
 
-router.get("/", (req, res) => {
-  res.status(200).send("Hello World!");
-});
-
 router.get("/users", requestTime, validateToken, async (req, res) => {
   try {
     const auth = req.header("Authorization");
@@ -49,6 +45,8 @@ router.get("/users", requestTime, validateToken, async (req, res) => {
 router.post("/users", requestTime, async (req, res) => {
   try {
     const user = req.body;
+    const data = await getUser(user.email);
+    if (data) throw { code: 409, message: "Correo electrónico ya registrado" };
     await userRegister(user);
     res.status(201).send("Usuario creado con éxito");
   } catch (error) {

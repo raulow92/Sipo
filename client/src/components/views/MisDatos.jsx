@@ -50,7 +50,9 @@ const MisDatos = () => {
     const handleUpdateData = async (e) => {
         e.preventDefault();
         const endpoint = `/update/${userData.user_id}`;
+        const { nombre, apellidos, email, pass, image } = formData;
         try {
+            if (!nombre || !apellidos || !email || !pass || !image) return alert("Todos los campos son obligatorios");
             await axios.patch(url + endpoint, formData);
             alert("Datos actualizados exitosamente")
             getUserData()
