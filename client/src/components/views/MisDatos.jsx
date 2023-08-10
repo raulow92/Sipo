@@ -49,7 +49,7 @@ const MisDatos = () => {
 
     const handleUpdateData = async (e) => {
         e.preventDefault();
-        const endpoint = "/update";
+        const endpoint = `/update/${userData.user_id}`;
         try {
             await axios.patch(url + endpoint, formData);
             alert("Datos actualizados exitosamente")
