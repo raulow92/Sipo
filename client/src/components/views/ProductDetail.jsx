@@ -138,7 +138,7 @@ const ProductDetail = () => {
                     />
                 </div>
                 <div>
-                    <SellerCard id={id} />
+                    <SellerCard id={id} region={product.region} />
                     <div className="bg-white mt-6 p-6 rounded-lg shadow-md">
                         <h2 className="text-xl font-medium mb-1">
                             Detalles del producto

@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const getUser = async (email) => {
   const values = [email];
-  const consulta = "SELECT * FROM users WHERE email = $1";
+  const consulta = "SELECT fecha, user_id, nombre, apellidos, email, image FROM users WHERE email = $1";
   const { rows: user, rowCount } = await pool.query(consulta, values);
   if (!rowCount) throw { code: 404, message: "Usuario no encontrado" };
   return user[0];

@@ -17,6 +17,7 @@ const SellerProductCard = ({ id, img, titulo, descripcion, precio }) => {
       const { data: productList } = await axios.get(url + endpoint);
       setUserSells(productList);
     } catch (error) {
+      setUserSells([]);
       console.log(error);
     }
   };

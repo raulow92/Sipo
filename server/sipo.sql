@@ -2538,7 +2538,7 @@ VALUES
 		'atacama',
 		'Duis at velit eu est congue elementum.',
 		98317,
-		'https://picsum.photos/id/100/300/200',
+		'https://picsum.photos/id/100300/200',
 		FALSE,
 		3
 	);

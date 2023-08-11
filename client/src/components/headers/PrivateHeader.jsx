@@ -2,6 +2,7 @@ import LogoSipo from "@/assets/img/logo.svg";
 import MenuIcon from "@/components/icons/MenuIcon";
 import CloseIcon from "@/components/icons/CloseIcon";
 import LogOutIcon from "@/components/icons/LogOutIcon";
+import UserIcon from "@/components/icons/UserIcon";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +10,7 @@ import Context from "../../Context";
 
 const PrivateHeader = () => {
   const navigate = useNavigate();
-  const { setUsuario } = useContext(Context);
+  const { usuario, setUsuario } = useContext(Context);
   const [navClass, setNavClass] = useState(
     "hidden md:static md:flex md:pr-0 md:max-w-fit md:bg-transparent md:flex-row md:gap-8 md:pt-0 md:items-center md:font-medium md:text-base"
   );
@@ -34,11 +35,16 @@ const PrivateHeader = () => {
   return (
     <header className="flex mx-auto py-4 px-6 container items-center justify-between">
       <Link to="/">
-        <img src={LogoSipo} alt="Logo Sipo" className="w-32 md:w-40 hover:scale-[1.05] ease-in-out duration-300" />
+        <img
+          src={LogoSipo}
+          alt="Logo Sipo"
+          className="w-32 md:w-40 hover:scale-[1.05] ease-in-out duration-300"
+        />
       </Link>
       <button className="md:hidden" onClick={handleOpenMenu}>
         <MenuIcon />
       </button>
+      <div className="flex">
       <nav className={navClass}>
         <button
           className=" md:hidden self-end mt-10 mb-20"
@@ -60,7 +66,7 @@ const PrivateHeader = () => {
         >
           Dashboard
         </Link>
-        <Link 
+        <Link
           to="/"
           onClick={[logout, handleCloseMenu]}
           className="hidden md:flex"
@@ -82,6 +88,18 @@ const PrivateHeader = () => {
           Publicar venta
         </Link>
       </nav>
+        {usuario.data.image != null ? (
+            <div className="w-14 h-14 mx-5">
+              <img
+                src={usuario.data.image}
+                alt="..."
+                className="object-cover w-full h-full rounded-full border border-sky-400"
+              />
+            </div>
+          ) : (
+            <UserIcon className="w-14 mx-5" />
+          )}
+        </div>
     </header>
   );
 };
