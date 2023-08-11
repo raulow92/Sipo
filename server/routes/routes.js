@@ -154,7 +154,7 @@ router.get("/favorites/:user_id", requestTime, async (req, res) => {
   }
 });
 
-router.get("/user/:user_id/favorites", requestTime, async (req, res) => {
+router.get("/users/:user_id/favorites", requestTime, async (req, res) => {
   try {
     const { user_id } = req.params;
     const data = await getUserFavorites(user_id);

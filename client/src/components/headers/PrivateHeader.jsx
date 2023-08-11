@@ -34,7 +34,7 @@ const PrivateHeader = () => {
 
   return (
     <header className="flex mx-auto py-4 px-6 container items-center justify-between">
-      <Link to="/">
+      <Link to="/tienda">
         <img
           src={LogoSipo}
           alt="Logo Sipo"

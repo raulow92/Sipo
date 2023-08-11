@@ -1,4 +1,5 @@
 import SellerProductCard from "@/components/cards/SellerProductCard";
+import Loader from "@/components/icons/Loader";
 import { useContext, useEffect, useState } from "react";
 import Context from "../../Context";
 import axios from "axios";
@@ -45,10 +46,7 @@ const MisVentas = () => {
           )}
         </div>
       ) : (
-        <div className="alert alert-secondary">
-          <p>Cargando data!!!</p>
-          <p>Por favor espere...</p>
-        </div>
+        <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" />
       )}
     </div>
   );

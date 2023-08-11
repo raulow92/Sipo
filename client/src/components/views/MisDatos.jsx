@@ -17,7 +17,7 @@ const MisDatos = () => {
             const { data } = await axios.get(url + endpoint, {
                 headers: { Authorization: "Bearer " + token },
             });
-            const favEndpoint = `/user/${data.user_id}/favorites`;
+            const favEndpoint = `/users/${data.user_id}/favorites`;
             const { data: favorites } = await axios.get(url + favEndpoint);
             const result = {
             data,

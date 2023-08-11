@@ -3,6 +3,7 @@ import SearchIcon from "@/components/icons/SearchIcon";
 import CategoriesIcon from "@/components/icons/CategoriesIcon";
 import DownIcon from "@/components/icons/DownIcon";
 import LocationIcon from "@/components/icons/LocationIcon";
+import Loader from "@/components/icons/Loader";
 import ProductCard from "@/components/cards/ProductCard";
 import axios from "axios";
 import { useContext } from "react";
@@ -37,7 +38,7 @@ const Tienda = () => {
       const { data } = await axios.get(url + endpoint, {
         headers: { Authorization: "Bearer " + token },
       });
-      const favEndpoint = `/user/${data.user_id}/favorites`;
+      const favEndpoint = `/users/${data.user_id}/favorites`;
       const { data: favorites } = await axios.get(url + favEndpoint);
       const result = {
         data,
@@ -128,7 +129,7 @@ const Tienda = () => {
   };
 
   const filteredProducts = products.filter((product) => {
-    return product.user_id != usuario.data.user_id && product.vendido === false
+    return product.user_id != usuario.data.user_id && product.vendido === false;
   });
 
   return (
@@ -231,10 +232,7 @@ const Tienda = () => {
           )}
         </div>
       ) : (
-        <div className="alert alert-secondary">
-          <p>Cargando data!!!</p>
-          <p>Por favor espere...</p>
-        </div>
+        <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" />
       )}
     </div>
   );
