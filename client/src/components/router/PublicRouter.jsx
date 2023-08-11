@@ -10,6 +10,7 @@ const PublicRouter = () => {
         <Route path="/" element={<WelcomeMain />} />
         <Route path="/signup" element={<SignUpMain />} />
         <Route path="/login" element={<LogInMain />} />
+        <Route path="*" element={<h1>404</h1>} />
       </Routes>
     </>
   );

@@ -139,7 +139,7 @@ const ProductDetail = () => {
                 </div>
                 <div>
                     <SellerCard id={id} region={product.region} />
-                    <div className="bg-white mt-6 p-6 rounded-lg shadow-md">
+                    <div className="bg-white mt-6 p-8 rounded-lg shadow-md">
                         <h2 className="text-xl font-medium mb-1">
                             Detalles del producto
                         </h2>

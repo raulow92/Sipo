@@ -82,34 +82,34 @@ const SellerCards = ({ id, region }) => {
   }, []);
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
+    <div className="bg-white p-8 rounded-lg shadow-md relative">
       {loaded ? (
         <div className="flex justify-between">
-          <div className="basis-2/3">
+          <div className="w-full">
             <h2 className="text-xl font-medium mb-1">Detalles del vendedor</h2>
-            <div className="border-solid border-t-2 border-sky-300 mb-4"></div>
+            <div className="border-solid border-t-2 border-sky-300 mb-4 w-3/5"></div>
             <p className="mb-1">
               {seller.nombre} {seller.apellidos}
             </p>
             <p className="mb-1">{seller.email}</p>
-            <p>{betterName(region)}</p>
+            <p className="mb-1">{betterName(region)}</p>
             <p>Vendedor desde el {formatDate(seller.fecha)}</p>
           </div>
           {seller.image != null ? (
-            <div className="w-20 h-20 mx-auto my-auto">
+            <div className="w-20 h-20 mx-auto my-auto absolute top-8 right-10">
               <img
                 src={seller.image}
-                alt="..."
-                className="object-cover w-full h-full rounded-full border border-sky-400"
+                alt={seller.nombre}
+                className="object-cover w-full h-full rounded-full border-2 border-sky-400"
               />
             </div>
           ) : (
-            <UserIcon className="w-20 mx-auto" />
+            <UserIcon className="w-16 mx-auto absolute top-8 right-10" />
           )}
         </div>
       ) : (
-        <button type="button" class="bg-indigo-500 ..." disabled>
-          <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+        <button type="button" className="bg-indigo-500 ..." disabled>
+          <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
             <></>
           </svg>
           Cargando...

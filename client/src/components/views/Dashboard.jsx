@@ -27,8 +27,8 @@ const Dashboard = () => {
             <div className="w-20 h-20 mx-auto">
               <img
                 src={usuario.data.image}
-                alt="..."
-                className="object-cover w-full h-full rounded-full border border-sky-400"
+                alt={usuario.data.nombre}
+                className="object-cover w-full h-full rounded-full border-4 border-sky-400"
               />
             </div>
           ) : (

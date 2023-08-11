@@ -26,6 +26,7 @@ const PrivateRouter = () => {
                 <Route path="/mis-compras" element={<MisCompras />} />
                 <Route path="/favoritos" element={<Favoritos />} />
                 <Route path="/mis-ventas" element={<MisVentas />} />
+                <Route path="*" element={<h1>404</h1>} />
             </Routes>
         </>
     );

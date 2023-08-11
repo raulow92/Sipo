@@ -32,10 +32,11 @@ const LogInMain = () => {
       alert("Usuario identificado con éxito 😀");
       localStorage.setItem("token", token);
       getUserData();
-      navigate("/tienda");
     } catch (e) {
       setError(e.response.data);
       console.log(e.response.data);
+    } finally {
+      navigate("/tienda");
     }
   };
 
