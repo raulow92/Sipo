@@ -12,16 +12,19 @@ const MisCompras = () => {
     setUserBuys,
   } = useContext(Context);
   const [loaded, setLoaded] = useState(false);
-
   const url = "http://localhost:3000";
 
-  const getData = async () => {
-    const endpoint = `/buys/${usuario.data.user_id}`;
+  const getData = async (data) => {
+    const endpoint = `/buys/${data.user_id}`;
     try {
       const { data: productList } = await axios.get(url + endpoint);
+      if(productList === '')
+      {
+        setUserBuys([])
+      }
+      else
       setUserBuys(productList);
     } catch (e) {
-      setUserBuys([]);
       console.log(e);
     } finally {
       setLoaded(true);
@@ -42,8 +45,9 @@ const MisCompras = () => {
         favorites,
       };
       setUsuarioGlobal(result);
-    } catch (e) {
-      console.log(e);
+      getData(data);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -76,7 +80,7 @@ const MisCompras = () => {
   };
 
   useEffect(() => {
-    getData();
+    getUserData();
   }, []);
 
   return (

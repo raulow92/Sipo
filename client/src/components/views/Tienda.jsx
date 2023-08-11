@@ -19,8 +19,6 @@ const Tienda = () => {
 
   const getData = async () => {
     const endpoint = "/tienda";
-    const token = localStorage.getItem("token");
-    console.log(token);
     try {
       const { data: productList } = await axios.get(url + endpoint);
       setProducts(productList);
@@ -47,6 +45,9 @@ const Tienda = () => {
       setUsuarioGlobal(result);
     } catch (error) {
       console.log(error);
+    }
+    finally{
+      getData();
     }
   };
 
@@ -90,7 +91,7 @@ const Tienda = () => {
   };
 
   useEffect(() => {
-    getData();
+    getUserData();
   }, []);
 
   const handleRegionChange = () => {

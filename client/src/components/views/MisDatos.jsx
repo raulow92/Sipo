@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
+import Loader from "@/components/icons/Loader";
 import Context from "../../Context";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -6,8 +7,16 @@ import { useNavigate } from "react-router-dom";
 
 const MisDatos = () => {
     const navigate = useNavigate()
-    const { usuario, setUsuario: setUsuarioGlobal } = useContext(Context);
-    const { data: userData } = usuario; 
+    const { setUsuario: setUsuarioGlobal } = useContext(Context);
+    const [loaded, setLoaded] = useState(false);
+    const [formData, setFormData] = useState({
+        id: '',
+        nombre: '',
+        apellidos: '',
+        email: '',
+        password: '',
+        image: '',
+    });
     const url = "http://localhost:3000";
 
     const getUserData = async () => {
@@ -17,6 +26,15 @@ const MisDatos = () => {
             const { data } = await axios.get(url + endpoint, {
                 headers: { Authorization: "Bearer " + token },
             });
+            setFormData({
+                ...formData,
+                id: data.user_id,
+                nombre: data.nombre,
+                apellidos: data.apellidos,
+                email: data.email,
+                password: data.password,
+                image: data.image,
+              });
             const favEndpoint = `/users/${data.user_id}/favorites`;
             const { data: favorites } = await axios.get(url + favEndpoint);
             const result = {
@@ -27,16 +45,10 @@ const MisDatos = () => {
         } catch (error) {
             console.log(error);
         }
+        finally{
+            setLoaded(true);
+        }
         };
-
-    const [formData, setFormData] = useState({
-        id: userData.user_id,
-        nombre: userData.nombre,
-        apellidos: userData.apellidos,
-        email: userData.email,
-        pass: userData.pass,
-        image: userData.image,
-    });
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -48,10 +60,10 @@ const MisDatos = () => {
 
     const handleUpdateData = async (e) => {
         e.preventDefault();
-        const endpoint = `/update/${userData.user_id}`;
-        const { nombre, apellidos, email, pass, image } = formData;
+        const endpoint = `/update/${formData.id}`;
+        const { nombre, apellidos, email, password, image } = formData;
         try {
-            if (!nombre || !apellidos || !email || !pass || !image) return alert("Todos los campos son obligatorios");
+            if (!nombre || !apellidos || !email || !password || !image) return alert("Todos los campos son obligatorios");
             await axios.patch(url + endpoint, formData);
             alert("Datos actualizados exitosamente")
             getUserData()
@@ -61,8 +73,13 @@ const MisDatos = () => {
         }
     };
 
+    useEffect(() => {
+        getUserData();
+      }, []);
+
     return (
         <div className="container mx-auto">
+            {loaded ? (
             <form
                 onSubmit={handleUpdateData}
                 className="bg-white mx-6 my-8 p-8 xl:w-1/2 xl:mx-auto rounded-xl md:drop-shadow-md"
@@ -121,9 +138,9 @@ const MisDatos = () => {
                         </label>
                         <input
                             type="password"
-                            id="pass"
-                            name="pass"
-                            value={formData.pass}
+                            id="password"
+                            name="password"
+                            value={formData.password}
                             placeholder="Nueva Contraseña"
                             onChange={handleInputChange}
                             className="border border-gray-300 rounded-xl p-4 pl-6 h-12 w-full xl:w-5/6"
@@ -150,6 +167,9 @@ const MisDatos = () => {
                     ></input>
                 </div>
             </form>
+            ) : (
+                <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400" />
+            )}
         </div>
     );
 };

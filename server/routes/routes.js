@@ -88,6 +88,8 @@ router.get("/users/:user_id/ventas", requestTime, async (req, res) => {
   try {
     const { user_id } = req.params;
     const data = await getUserProducts(user_id);
+    console.log("va la data de ventas")
+    console.log(data)
     res.send(data);
   } catch (error) {
     res.status(error.code || 500).send(error.message);

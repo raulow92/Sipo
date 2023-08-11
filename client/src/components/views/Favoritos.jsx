@@ -11,8 +11,8 @@ const Favoritos = () => {
 
   const url = "http://localhost:3000";
 
-  const getData = async () => {
-    const endpoint = `/favorites/${usuario.data.user_id}`;
+  const getData = async (data) => {
+    const endpoint = `/favorites/${data.user_id}`;
     try {
       const { data: favoriteList } = await axios.get(url + endpoint);
       setFavorites(favoriteList);
@@ -37,6 +37,7 @@ const Favoritos = () => {
         favorites,
       };
       setUsuarioGlobal(result);
+      getData(data);
     } catch (error) {
       console.log(error);
     }
@@ -58,7 +59,6 @@ const Favoritos = () => {
       } else {
         try {
           await axios.delete(url + endpoint + userEndpoint);
-          getData();
           getUserData();
         } catch (error) {
           console.log(error);
@@ -70,7 +70,7 @@ const Favoritos = () => {
   };
 
   useEffect(() => {
-    getData();
+    getUserData();
   }, []);
 
   return (

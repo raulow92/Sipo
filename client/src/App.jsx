@@ -10,12 +10,12 @@ const App = () => {
     const [usuario, setUsuario] = useState(null)
     const [userSells, setUserSells] = useState(null)
     const [userBuys, setUserBuys] = useState(null)
-
+    const token = localStorage.getItem("token");
     return (
         <>
             <Context.Provider value = {{usuario, setUsuario, userSells, setUserSells, userBuys, setUserBuys }} >
-                {usuario ? <PrivateHeader /> : <PublicHeader />}
-                {usuario ? <PrivateRouter /> : <PublicRouter />}
+                {token ? <PrivateHeader /> : <PublicHeader />}
+                {token ? <PrivateRouter /> : <PublicRouter />}
             </Context.Provider>
             <Footer />
         </>

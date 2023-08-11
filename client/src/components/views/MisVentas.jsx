@@ -5,15 +5,20 @@ import Context from "../../Context";
 import axios from "axios";
 
 const MisVentas = () => {
-  const { usuario, userSells, setUserSells } = useContext(Context);
+  const { usuario, setUsuario: setUsuarioGlobal, userSells, setUserSells } = useContext(Context);
   const [loaded, setLoaded] = useState(false);
 
   const url = "http://localhost:3000";
 
-  const getData = async () => {
-    const endpoint = `/users/${usuario.data.user_id}/ventas`;
+  const getData = async (data) => {
+    const endpoint = `/users/${data.user_id}/ventas`;
     try {
       const { data: productList } = await axios.get(url + endpoint);
+      if(productList === '')
+      {
+        setUserSells([])
+      }
+      else
       setUserSells(productList);
     } catch (error) {
       setUserSells([]);
@@ -23,8 +28,28 @@ const MisVentas = () => {
     }
   };
 
+  const getUserData = async () => {
+    const endpoint = "/users";
+    const token = localStorage.getItem("token");
+    try {
+      const { data } = await axios.get(url + endpoint, {
+        headers: { Authorization: "Bearer " + token },
+      });
+      const favEndpoint = `/users/${data.user_id}/favorites`;
+      const { data: favorites } = await axios.get(url + favEndpoint);
+      const result = {
+        data,
+        favorites,
+      };
+      setUsuarioGlobal(result);
+      getData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    getData();
+    getUserData();
   }, []);
 
   return (

@@ -6,7 +6,6 @@ const getUser = async (email) => {
   const values = [email];
   const consulta = "SELECT fecha, user_id, nombre, apellidos, email, image FROM users WHERE email = $1";
   const { rows: user, rowCount } = await pool.query(consulta, values);
-  if (!rowCount) throw { code: 404, message: "Usuario no encontrado" };
   return user[0];
 };
 
@@ -35,8 +34,8 @@ const userRegister = async (user) => {
 
 const updateUser = async (userData) => {
   try {
-    const {nombre, apellidos, pass, image, id} = userData;
-    const passwordEncriptada = bcrypt.hashSync(pass);
+    const {nombre, apellidos, password, image, id} = userData;
+    const passwordEncriptada = bcrypt.hashSync(password);
     const query = `
       UPDATE users
       SET nombre = $1, apellidos = $2, password = $3, image = $4
@@ -59,7 +58,7 @@ const getUserProducts = async (user_id) => {
   const values = [user_id];
   const consulta = "SELECT * from products WHERE user_id = $1";
   const { rows: userProducts, rowCount } = await pool.query(consulta, values);
-  if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
+  if (!rowCount) throw { code: 204, message: "Productos no encontrados" };
   return userProducts;
 };
 
@@ -178,7 +177,7 @@ const getPurchasedProducts = async (user_id) => {
   const consulta =
     "SELECT p.* FROM products p JOIN buys f ON p.product_id = f.product_id WHERE f.user_id = $1";
   const { rows: productos, rowCount } = await pool.query(consulta, values);
-  if (!rowCount) throw { code: 404, message: "Productos no encontrados" };
+  if (!rowCount) throw { code: 204, message: "Productos no encontrados" };
   return productos;
 };
 
