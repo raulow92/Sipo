@@ -49,15 +49,9 @@ const LogInMain = () => {
       console.log(data.user_id);
       const favEndpoint = `/users/${data.user_id}/favorites`;
       const { data: favorites } = await axios.get(url + favEndpoint);
-      const sellEndpoint = `/users/${data.user_id}/ventas`;
-      const { data: sells } = await axios.get(url + sellEndpoint);
-      const buyEndpoint = `/buys/${data.user_id}`;
-      const { data: buys } = await axios.get(url + buyEndpoint);
       const result = {
         data,
-        favorites,
-        sells,
-        buys
+        favorites
       };
       setUsuarioGlobal(result);
       console.log(result);
