@@ -7,7 +7,7 @@ const validateToken = (req, res, next) => {
   const verificacion = jwt.verify(token, process.env.TOKEN_SECRET);
   if (!verificacion) throw { code: 401, message: "Token inválido" };
   next();
-};
+}
 
 const requestTime = (req, res, next) => {
   console.log("\x1b[31m", Date().toString());
