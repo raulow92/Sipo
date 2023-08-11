@@ -13,69 +13,75 @@ CREATE TABLE
 	);
 
 INSERT INTO
-	users (user_id, nombre, apellidos, email, password)
+	users (user_id, nombre, apellidos, email, password, image)
 VALUES
 	(
 		DEFAULT,
 		'Raul',
 		'Low',
 		'rlow@mail.com',
-		'$2a$10$dRYOAKwA2K4SzX/uYwhaQOfRWuuT6zajQnZfuIoFE3BWWN4hiIj1W'
+		'$2a$10$dRYOAKwA2K4SzX/uYwhaQOfRWuuT6zajQnZfuIoFE3BWWN4hiIj1W',
+		'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 	);
 
 INSERT INTO
-	users (user_id, nombre, apellidos, email, password)
+	users (user_id, nombre, apellidos, email, password, image)
 VALUES
 	(
 		DEFAULT,
 		'Ariel',
 		'Sandoval',
 		'asandoval@mail.com',
-		'$2a$10$7SU1IIV6ppZ1sXvOF7To5OBsYMaG84sgU/UXG6GUg90E2a4SibioO'
+		'$2a$10$7SU1IIV6ppZ1sXvOF7To5OBsYMaG84sgU/UXG6GUg90E2a4SibioO',
+		'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 	);
 
 INSERT INTO
-	users (user_id, nombre, apellidos, email, password)
+	users (user_id, nombre, apellidos, email, password, image)
 VALUES
 	(
 		DEFAULT,
 		'Sofia',
 		'Pickrill',
 		'spickrill0@statcounter.com',
-		'$2a$10$6LSdCSxRGdGGty98uxk2LemMhaNs32/AIILU2TADLp9yuA1OeRrEO'
+		'$2a$10$6LSdCSxRGdGGty98uxk2LemMhaNs32/AIILU2TADLp9yuA1OeRrEO',
+		'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 	);
 
 INSERT INTO
-	users (user_id, nombre, apellidos, email, password)
+	users (user_id, nombre, apellidos, email, password, image)
 VALUES
 	(
 		DEFAULT,
 		'Katti',
 		'Scally',
 		'kscally1@hp.com',
-		'$2a$10$EWUBzQ8hJXZc7tow0qZVu.lsMRd0g5ZfcA7gUvZQjF1ZUT9t50.ia'
+		'$2a$10$EWUBzQ8hJXZc7tow0qZVu.lsMRd0g5ZfcA7gUvZQjF1ZUT9t50.ia',
+		'https://images.pexels.com/photos/774095/pexels-photo-774095.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 	);
 
 INSERT INTO
-	users (user_id, nombre, apellidos, email, password)
+	users (user_id, nombre, apellidos, email, password, image)
 VALUES
 	(
 		DEFAULT,
 		'Killie',
 		'Maxsted',
 		'kmaxsted2@pinterest.com',
-		'$2a$10$T/ZrDQwI79jLY6En0jjUZe1tcRCCP0ZOShWdAtGj6w4kJp3PNwokm'
+		'$2a$10$T/ZrDQwI79jLY6En0jjUZe1tcRCCP0ZOShWdAtGj6w4kJp3PNwokm',
+		'https://images.pexels.com/photos/6652959/pexels-photo-6652959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 	);
 
 INSERT INTO
-	users (user_id, nombre, apellidos, email, password)
+	users (user_id, nombre, apellidos, email, password, image)
 VALUES
 	(
 		DEFAULT,
 		'Jameson',
 		'Bennell',
 		'jbennell5@netvibes.com',
-		'$2a$10$3ltH9iU1GVWKZJ0ILi1jx.xYAxe7eOIUg2M3JlG3mHmlhHXQx6zrG'
+		'$2a$10$3ltH9iU1GVWKZJ0ILi1jx.xYAxe7eOIUg2M3JlG3mHmlhHXQx6zrG',
+		'https://images.pexels.com/photos/8159657/pexels-photo-8159657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 	);
 
 --TABLA DE PRODUCTOS--

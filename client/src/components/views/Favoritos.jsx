@@ -5,7 +5,7 @@ import Context from "../../Context";
 import axios from "axios";
 
 const Favoritos = () => {
-  const { usuario, setUsuario: setUsuarioGlobal  } = useContext(Context);
+  const { usuario, setUsuario: setUsuarioGlobal } = useContext(Context);
   const [favorites, setFavorites] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
@@ -57,10 +57,8 @@ const Favoritos = () => {
         getUserData();
       } else {
         try {
-          await axios.delete(
-            url + endpoint + userEndpoint
-          );
-          getData()
+          await axios.delete(url + endpoint + userEndpoint);
+          getData();
           getUserData();
         } catch (error) {
           console.log(error);
@@ -75,26 +73,29 @@ const Favoritos = () => {
     getData();
   }, []);
 
-  return loaded ? (
+  return (
     <div className="container mx-auto mt-6">
       <h2 className="text-center font-medium text-2xl mb-8">Favoritos</h2>
-      <div className="mx-6 lg:mx-16 mt-6 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {favorites.map(({ product_id, image, titulo, descripcion, precio }) => (
-          <ProductCard
-            id={product_id}
-            key={product_id + "A"}
-            img={image}
-            titulo={titulo}
-            descripcion={descripcion}
-            precio={precio}
-            handleFavorite={handleFavorite}
-          />
-        ))}
-      </div>
+      {loaded ? (
+        <div className="mx-6 lg:mx-16 mt-6 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {favorites.map(
+            ({ product_id, image, titulo, descripcion, precio }) => (
+              <ProductCard
+                id={product_id}
+                key={product_id + "A"}
+                img={image}
+                titulo={titulo}
+                descripcion={descripcion}
+                precio={precio}
+                handleFavorite={handleFavorite}
+              />
+            )
+          )}
+        </div>
+      ) : (
+        <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400" />
+      )}
     </div>
-  ) : (
-    <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" />
   );
 };
-
 export default Favoritos;

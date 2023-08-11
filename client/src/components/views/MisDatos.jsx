@@ -24,7 +24,6 @@ const MisDatos = () => {
             favorites,
             };
             setUsuarioGlobal(result);
-            console.log(result);
         } catch (error) {
             console.log(error);
         }
@@ -57,7 +56,6 @@ const MisDatos = () => {
             alert("Datos actualizados exitosamente")
             getUserData()
             navigate("/dashboard");
-            console.log("Datos actualizados exitosamente");
         } catch (error) {
             console.log(error);
         }

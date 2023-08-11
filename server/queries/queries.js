@@ -17,7 +17,6 @@ const verifyCredentials = async (email, password) => {
     rows: [user],
     rowCount,
   } = await pool.query(consulta, values);
-  console.log(user);
   if (!rowCount) throw { code: 401, message: "Email no encontrado" };
   const { password: passwordEncriptada } = user;
   const passwordCorrecta = bcrypt.compareSync(password, passwordEncriptada);
@@ -97,7 +96,6 @@ const getFilteredProducts = async ({ categoria, region, buscador }) => {
       if (buscador) {
         let filter1 = filter.slice(0, 2);
         let filter2 = filter.slice(2);
-        console.log(filter2);
         if (filter2.length == 0) {
           filter1 = filter1.join(" OR ");
           subquery += ` WHERE ${filter1}`;

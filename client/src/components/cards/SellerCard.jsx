@@ -1,4 +1,5 @@
 import UserIcon from "@/components/icons/UserIcon";
+import Loader from "@/components/icons/Loader";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -108,12 +109,7 @@ const SellerCards = ({ id, region }) => {
           )}
         </div>
       ) : (
-        <button type="button" className="bg-indigo-500 ..." disabled>
-          <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-            <></>
-          </svg>
-          Cargando...
-        </button>
+        <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400" />
       )}
     </div>
   );

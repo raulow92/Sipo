@@ -19,7 +19,6 @@ const Purchased = () => {
             const response = await axios.get(url + endpoint);
             const productData = response.data
             setProduct(productData);
-            console.log(productData);
         } catch (error) {
             console.log(error);
         }

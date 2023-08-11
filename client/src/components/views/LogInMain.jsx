@@ -34,7 +34,6 @@ const LogInMain = () => {
       getUserData();
     } catch (e) {
       setError(e.response.data);
-      console.log(e.response.data);
     } finally {
       navigate("/tienda");
     }
@@ -47,7 +46,6 @@ const LogInMain = () => {
       const { data } = await axios.get(url + endpoint, {
         headers: { Authorization: "Bearer " + token },
       });
-      console.log(data.user_id);
       const favEndpoint = `/users/${data.user_id}/favorites`;
       const { data: favorites } = await axios.get(url + favEndpoint);
       const result = {
@@ -55,7 +53,6 @@ const LogInMain = () => {
         favorites
       };
       setUsuarioGlobal(result);
-      console.log(result);
     } catch (error) {
       console.log(error);
     }

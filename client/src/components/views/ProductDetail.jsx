@@ -28,7 +28,6 @@ const ProductDetail = () => {
                 product_id: id,
                 user_id: usuario.data.user_id,
             });
-            console.log(response);
             navigate(`/purchased/${id}`);
         } catch (error) {
             console.log(error);
@@ -90,14 +89,12 @@ const ProductDetail = () => {
                     user_id: usuario.data.user_id,
                     product_id: id,
                 });
-                console.log(response);
                 getUserData();
             } else {
                 try {
                     const { data: response } = await axios.delete(
                         url + endpoint + userEndpoint
                     );
-                    console.log(response);
                     getUserData();
                 } catch (error) {
                     console.log(error);

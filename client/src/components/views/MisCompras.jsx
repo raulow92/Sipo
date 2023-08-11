@@ -59,14 +59,12 @@ const MisCompras = () => {
           user_id: usuario.data.user_id,
           product_id: id,
         });
-        console.log(response);
         getUserData();
       } else {
         try {
           const { data: response } = await axios.delete(
             url + endpoint + userEndpoint
           );
-          console.log(response);
           getUserData();
         } catch (error) {
           console.log(error);
@@ -101,7 +99,7 @@ const MisCompras = () => {
           )}
         </div>
       ) : (
-        <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" />
+        <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400" />
       )}
     </div>
   );

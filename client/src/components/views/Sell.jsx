@@ -37,9 +37,7 @@ const Sell = () => {
         try {
             if (!titulo || !descripcion || !precio || !image || !categoria || !region) return alert("Todos los campos son obligatorios");
             const { data: response } = await axios.post(url + endpoint, formData);
-            console.log(response);
             navigate("/agregado");
-            console.log("Producto publicado exitosamente");
         } catch (error) {
             console.log(error);
         }

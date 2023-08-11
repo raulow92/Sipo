@@ -59,7 +59,6 @@ router.post("/login", requestTime, async (req, res) => {
     await verifyCredentials(email, password);
     const token = jwt.sign({ email }, process.env.TOKEN_SECRET);
     res.status(201).send(token);
-    console.log(token);
   } catch (error) {
     console.log(error);
     res.status(error.code || 500).send(error.message);
@@ -90,7 +89,6 @@ router.get("/users/:user_id/ventas", requestTime, async (req, res) => {
     const { user_id } = req.params;
     const data = await getUserProducts(user_id);
     res.send(data);
-    console.log(data);
   } catch (error) {
     res.status(error.code || 500).send(error.message);
   }
@@ -103,7 +101,6 @@ router.delete(
     try {
       const { user_id, product_id } = req.params;
       const data = await deleteUserProduct(user_id, product_id);
-      console.log(data);
       res.send("Producto eliminado con éxito");
     } catch (error) {
       res.status(error.code || 500).send(error.message);
@@ -148,7 +145,6 @@ router.get("/favorites/:user_id", requestTime, async (req, res) => {
     const { user_id } = req.params;
     const data = await getUserFavoritesDetail(user_id);
     res.send(data);
-    console.log(data);
   } catch (error) {
     res.status(error.code || 500).send(error.message);
   }
@@ -159,7 +155,6 @@ router.get("/users/:user_id/favorites", requestTime, async (req, res) => {
     const { user_id } = req.params;
     const data = await getUserFavorites(user_id);
     res.send(data);
-    console.log(data);
   } catch (error) {
     res.status(error.code || 500).send(error.message);
   }
@@ -168,11 +163,8 @@ router.get("/users/:user_id/favorites", requestTime, async (req, res) => {
 router.patch("/update/:userID", requestTime, async (req, res) => {
   try {
     const { userID } = req.params;
-    console.log(userID);
     const userData = req.body;
-    console.log(userData.id)
     if (userID != userData.id) {
-      console.log("entro")
       return res.status(400).send({
         message: "El id del parámetro no coincide con el id usuario recibido",
       });
@@ -196,7 +188,6 @@ router.get("/buys/:user_id", requestTime, async (req, res) => {
     const { user_id } = req.params;
     const data = await getPurchasedProducts(user_id);
     res.send(data);
-    console.log(data);
   } catch (error) {
     res.status(error.code || 500).send(error.message);
   }
@@ -207,7 +198,6 @@ router.get("/seller/:product_id", requestTime, async (req, res) => {
     const { product_id } = req.params;
     const data = await getSeller(product_id);
     res.send(data);
-    console.log(data);
   } catch (error) {
     res.status(error.code || 500).send(error.message);
   }
@@ -218,7 +208,6 @@ router.get("/product/:product_id", requestTime, async (req, res) => {
     const { product_id } = req.params;
     const data = await getSelectedProduct(product_id);
     res.send(data);
-    console.log(data);
   } catch (error) {
     res.status(error.code || 500).send(error.message);
   }
