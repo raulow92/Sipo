@@ -10,7 +10,7 @@ import { useContext } from "react";
 import Context from "../../Context";
 
 const Tienda = () => {
-  const url = "http://localhost:3000";
+  const url = "https://sipoback.onrender.com";
   const [selectedRegion, setSelectedRegion] = useState("Todo Chile");
   const [products, setProducts] = useState([]);
   const [filters, setFilter] = useState({});

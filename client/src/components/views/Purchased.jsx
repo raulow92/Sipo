@@ -15,7 +15,7 @@ const Purchased = () => {
 
     const getProduct = async () => {
         try {
-            const endpoint = `product/${id}`;
+            const endpoint = `/product/${id}`;
             const response = await axios.get(url + endpoint);
             const productData = response.data
             setProduct(productData);

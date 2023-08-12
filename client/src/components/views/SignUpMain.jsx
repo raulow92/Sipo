@@ -14,7 +14,7 @@ const SignUpMain = () => {
     setUsuarioLocal({ ...usuarioLocal, ...field });
   };
 
-  const url = "http://localhost:3000";
+  const url = "https://sipoback.onrender.com";
 
   const registroUsuario = async () => {
     const endpoint = "/users";

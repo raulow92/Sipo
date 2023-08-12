@@ -11,7 +11,7 @@ import Context from "../../Context";
 import axios from "axios";
 
 const PrivateHeader = () => {
-  const url = "http://localhost:3000";
+  const url = "https://sipoback.onrender.com";
   const navigate = useNavigate();
   const { usuario, setUsuario: setUsuarioGlobal } = useContext(Context);
   const [loaded, setLoaded] = useState(false);

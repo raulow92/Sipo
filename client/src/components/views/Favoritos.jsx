@@ -9,7 +9,7 @@ const Favoritos = () => {
   const [favorites, setFavorites] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
-  const url = "http://localhost:3000";
+  const url = "https://sipoback.onrender.com";
 
   const getData = async (data) => {
     const endpoint = `/favorites/${data.user_id}`;

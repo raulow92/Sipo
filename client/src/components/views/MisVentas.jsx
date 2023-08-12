@@ -8,7 +8,7 @@ const MisVentas = () => {
   const { usuario, setUsuario: setUsuarioGlobal, userSells, setUserSells } = useContext(Context);
   const [loaded, setLoaded] = useState(false);
 
-  const url = "http://localhost:3000";
+  const url = "https://sipoback.onrender.com";
 
   const getData = async (data) => {
     const endpoint = `/users/${data.user_id}/ventas`;

@@ -21,7 +21,7 @@ const LogInMain = () => {
     setUsuarioLocal({ ...usuarioLocal, ...field });
   };
 
-  const url = "http://localhost:3000";
+  const url = "https://sipoback.onrender.com";
 
   const inicioSesion = async () => {
     const endpoint = "/login";

@@ -17,7 +17,7 @@ const MisDatos = () => {
         password: '',
         image: '',
     });
-    const url = "http://localhost:3000";
+    const url = "https://sipoback.onrender.com";
 
     const getUserData = async () => {
         const endpoint = "/users";
