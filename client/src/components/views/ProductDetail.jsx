@@ -12,7 +12,7 @@ const priceFormat = new Intl.NumberFormat("es-CL", {
 });
 
 const ProductDetail = () => {
-    const url = "http://localhost:3000/";
+    const url = "https://sipoback.onrender.com";
     const [product, setProduct] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
