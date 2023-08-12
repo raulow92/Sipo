@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import Context from "../../Context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import LoadingButton from "../icons/LoadingButton";
 
 const LogInMain = () => {
   const { setUsuario: setUsuarioGlobal } = useContext(Context);
@@ -12,6 +13,7 @@ const LogInMain = () => {
     password: "12345",
   });
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const toSignUp = () => navigate("/signup");
 
@@ -24,6 +26,7 @@ const LogInMain = () => {
   const url = "https://sipoback.onrender.com";
 
   const inicioSesion = async () => {
+    setLoading(true);
     const endpoint = "/login";
     const { email, password } = usuarioLocal;
     try {
@@ -50,7 +53,7 @@ const LogInMain = () => {
       const { data: favorites } = await axios.get(url + favEndpoint);
       const result = {
         data,
-        favorites
+        favorites,
       };
       setUsuarioGlobal(result);
     } catch (error) {
@@ -77,9 +80,7 @@ const LogInMain = () => {
             className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 mb-2 rounded relative"
             role="alert"
           >
-            <span className="block sm:inline">
-              {error}
-            </span>
+            <span className="block sm:inline">{error}</span>
             <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
               <svg
                 className="fill-current h-6 w-6 text-red-500"
@@ -116,12 +117,16 @@ const LogInMain = () => {
               placeholder="Contraseña"
               className="border border-gray-300 rounded-xl p-4 pl-6 mt-5"
             />
-            <button
-              onClick={inicioSesion}
-              className="hover:cursor-pointer bg-sky-400 hover:bg-sky-500 font-medium rounded-xl text-white p-4 mt-5 hover:scale-[1.02] ease-in-out duration-300"
-            >
-              Iniciar sesión
-            </button>
+            {!loading ? (
+              <button
+                onClick={inicioSesion}
+                className="hover:cursor-pointer bg-sky-400 hover:bg-sky-500 font-medium rounded-xl text-white p-4 mt-5 hover:scale-[1.02] ease-in-out duration-300"
+              >
+                Iniciar sesión
+              </button>
+            ) : (
+              <LoadingButton className="hover:cursor-not-allowed text-white bg-sky-400 hover:bg-sky-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-xl p-4 mt-5 text-center dark:bg-sky-400 dark:hover:bg-sky-500 dark:focus:ring-sky-500 items-center hover:scale-[1.02] ease-in-out duration-300" />
+            )}
             <p className="text-center text-sky-400 hover:text-sky-500 font-medium text-base mt-5 hover:cursor-pointer">
               ¿Has olvidado la contraseña?
             </p>
