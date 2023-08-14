@@ -60,8 +60,8 @@ const MisVentas = () => {
                 Mis Ventas
             </h2>
             {(!userSells || userSells.length === 0) && loaded && (
-                <div className="bg-white rounded-lg shadow-md p-8 my-6 text-center w-full">
-                    <h2 className="font-bold text-2xl text-sky-400">
+                <div className="bg-white rounded-lg shadow-md p-8 mx-auto my-6 text-center w-5/6">
+                <h2 className="font-bold text-xl text-sky-400">
                         No tienes ventas aún.
                     </h2>
                 </div>
