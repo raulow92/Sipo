@@ -29,52 +29,36 @@ const SellerCards = ({ id, region }) => {
     switch (lugar) {
       case "arica":
         return "Arica y Parinacota";
-        break;
       case "tarapaca":
         return "Tarapacá";
-        break;
       case "antofagasta":
         return "Antofagasta";
-        break;
       case "atacama":
         return "Atacama";
-        break;
       case "coquimbo":
         return "Coquimbo";
-        break;
       case "valparaiso":
         return "Valparaíso";
-        break;
       case "ohiggins":
         return "O'Higgins";
-        break;
       case "maule":
         return "Maule";
-        break;
       case "biobio":
         return "Biobío";
-        break;
       case "araucania":
         return "Araucanía";
-        break;
       case "loslagos":
         return "Los Lagos";
-        break;
       case "aysen":
         return "Aysén";
-        break;
       case "magallanes":
         return "Magallanes y Antártica";
-        break;
       case "metropolitana":
         return "Metropolitana";
-        break;
       case "losrios":
         return "Los Ríos";
-        break;
       case "nuble":
         return "Ñuble";
-        break;
     }
   };
 
@@ -109,7 +93,7 @@ const SellerCards = ({ id, region }) => {
           )}
         </div>
       ) : (
-        <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400" />
+        <Loader className="inline w-20 h-20 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400" />
       )}
     </div>
   );

@@ -154,6 +154,7 @@ const MisDatos = () => {
                             type="text"
                             id="image"
                             name="image"
+                            value={formData.image}
                             placeholder="URL imagen"
                             onChange={handleInputChange}
                             className="border border-gray-300 rounded-xl p-4 pl-6 h-12 w-full xl:w-5/6"
@@ -168,7 +169,7 @@ const MisDatos = () => {
                 </div>
             </form>
             ) : (
-                <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400" />
+                <Loader className="inline w-20 h-20 mt-12 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400" />
             )}
         </div>
     );

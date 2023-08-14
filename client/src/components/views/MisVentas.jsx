@@ -71,7 +71,7 @@ const MisVentas = () => {
           )}
         </div>
       ) : (
-        <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400" />
+        <Loader className="inline w-20 h-20 mt-12 mr-2 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400" />
       )}
     </div>
   );

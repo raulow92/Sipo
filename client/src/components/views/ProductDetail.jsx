@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import HeartIcon from "@/components/icons/HeartIcon";
+import Loader from "@/components/icons/Loader";
 import SellerCard from "@/components/cards/SellerCard";
 import axios from "axios";
 import { useContext } from "react";
@@ -19,6 +20,7 @@ const ProductDetail = () => {
     const { usuario, setUsuario: setUsuarioGlobal } = useContext(Context);
     const [heartFill, setHeartFill] = useState("none");
     const [heartStroke, setHeartStroke] = useState("white");
+    const [loaded, setLoaded] = useState(false);
 
     const handleBuy = async (e) => {
         e.preventDefault();
@@ -42,6 +44,8 @@ const ProductDetail = () => {
             setProduct(productData);
         } catch (error) {
             console.log(error);
+        } finally {
+            setLoaded(true);
         }
     };
 
@@ -124,52 +128,60 @@ const ProductDetail = () => {
     const { product_id, image, titulo, descripcion, precio } = product;
 
     return (
-        <div className="container mx-auto mt-6 px-6 lg:px-16">
-            <h1 className="text-2xl font-medium mb-4">{titulo}</h1>
-            <div className="grid lg:grid-cols-2 gap-8">
-                <div className="">
-                    <img
-                        className="w-full rounded-lg"
-                        src={image}
-                        alt={titulo}
-                    />
-                </div>
-                <div>
-                    <SellerCard id={id} region={product.region} />
-                    <div className="bg-white mt-6 p-8 rounded-lg shadow-md">
-                        <h2 className="text-xl font-medium mb-1">
-                            Detalles del producto
-                        </h2>
-                        <div className="border-solid border-t-2 border-sky-300 mb-4"></div>
-                        <p className="mb-4">{descripcion}</p>
-                        <p className="text-2xl font-bold text-sky-400">
-                            {priceFormat.format(precio)}
-                        </p>
+        <>
+            {loaded ? (
+                <div className="container mx-auto mt-6 px-6 lg:px-16">
+                    <h1 className="text-2xl font-medium mb-4">{titulo}</h1>
+                    <div className="grid lg:grid-cols-2 gap-8">
+                        <div className="">
+                            <img
+                                className="w-full rounded-lg"
+                                src={image}
+                                alt={titulo}
+                            />
+                        </div>
+                        <div>
+                            <SellerCard id={id} region={product.region} />
+
+                            <div className="bg-white mt-6 p-8 rounded-lg shadow-md">
+                                <h2 className="text-xl font-medium mb-1">
+                                    Detalles del producto
+                                </h2>
+                                <div className="border-solid border-t-2 border-sky-300 mb-4"></div>
+                                <p className="mb-4">{descripcion}</p>
+                                <p className="text-2xl font-bold text-sky-400">
+                                    {priceFormat.format(precio)}
+                                </p>
+                            </div>
+
+                            <div className="flex justify-between item-center my-6">
+                                {!product.vendido ? (
+                                    <button
+                                        id={product_id}
+                                        onClick={handleBuy}
+                                        className="bg-sky-400 hover:bg-sky-500 w-5/6 py-3 text-white font-medium rounded-lg hover:scale-[1.02] ease-in-out duration-300"
+                                    >
+                                        Comprar
+                                    </button>
+                                ) : (
+                                    <button className="bg-gray-300 w-5/6 py-3 text-gray-200 font-medium rounded-lg cursor-not-allowed">
+                                        Comprado
+                                    </button>
+                                )}
+                                <HeartIcon
+                                    filled={heartFill}
+                                    stroke={heartStroke}
+                                    onClick={handleHeartClick}
+                                    className="w-10 mx-auto cursor-pointer hover:scale-125 ease-in-out duration-300"
+                                />
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex justify-between item-center my-6">
-                        {!product.vendido ? (
-                            <button
-                                id={product_id}
-                                onClick={handleBuy}
-                                className="bg-sky-400 hover:bg-sky-500 w-5/6 py-3 text-white font-medium rounded-lg hover:scale-[1.02] ease-in-out duration-300"
-                            >
-                                Comprar
-                            </button>
-                        ) : (
-                            <button className="bg-gray-300 w-5/6 py-3 text-gray-200 font-medium rounded-lg cursor-not-allowed">
-                                Comprado
-                            </button>
-                        )}
-                        <HeartIcon
-                            filled={heartFill}
-                            stroke={heartStroke}
-                            onClick={handleHeartClick}
-                            className="w-10 mx-auto cursor-pointer hover:scale-125 ease-in-out duration-300"
-                        />
-                    </div>
                 </div>
-            </div>
-        </div>
+            ) : (
+                <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400 mt-20" />
+            )}
+        </>
     );
 };
 

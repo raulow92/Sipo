@@ -16,7 +16,7 @@ const Dashboard = () => {
   const { usuario } = useContext(Context);
 
   return (
-    <div className="container mx-auto mt-6">
+    <div className="container mx-auto mt-6 ">
       <h2 className="text-center font-medium text-2xl mb-8">Dashboard</h2>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mx-auto w-fit mb-8">
         <div

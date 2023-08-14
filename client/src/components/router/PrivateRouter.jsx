@@ -10,6 +10,7 @@ import MisDatos from "@/components/views/MisDatos";
 import MisCompras from "@/components/views/MisCompras";
 import Favoritos from "@/components/views/Favoritos";
 import MisVentas from "@/components/views/MisVentas";
+import Loader from "@/components/icons/Loader";
 
 const PrivateRouter = () => {
     return (
@@ -26,7 +27,7 @@ const PrivateRouter = () => {
                 <Route path="/mis-compras" element={<MisCompras />} />
                 <Route path="/favoritos" element={<Favoritos />} />
                 <Route path="/mis-ventas" element={<MisVentas />} />
-                <Route path="*" element={<h1>404</h1>} />
+                <Route path="*" element={<Loader className="inline w-20 h-20 mt-12 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400"/>} /> 
             </Routes>
         </>
     );

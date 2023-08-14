@@ -35,10 +35,11 @@ const LogInMain = () => {
       alert("Usuario identificado con éxito 😀");
       localStorage.setItem("token", token);
       getUserData();
+      navigate("/tienda");
     } catch (e) {
       setError(e.response.data);
     } finally {
-      navigate("/tienda");
+      setLoading(false);
     }
   };
 
@@ -61,6 +62,10 @@ const LogInMain = () => {
     }
   };
 
+  const handleClick = () => {
+    setError(null);
+  }
+
   return (
     <main className="container mx-auto grid grid-cols-1 xl:grid-cols-2 md:items-center px-6 py-6 md:px-24 md:py-20">
       <section className="hidden xl:flex flex-col mx-auto md:pl-12">
@@ -81,7 +86,7 @@ const LogInMain = () => {
             role="alert"
           >
             <span className="block sm:inline">{error}</span>
-            <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+            <span className="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={handleClick}>
               <svg
                 className="fill-current h-6 w-6 text-red-500"
                 role="button"

@@ -71,13 +71,10 @@ const PrivateHeader = () => {
           className="w-32 md:w-40 hover:scale-[1.05] ease-in-out duration-300"
         />
       </Link>
-      <button className="md:hidden" onClick={handleOpenMenu}>
-        <MenuIcon />
-      </button>
       {loaded ? (
         <nav className={navClass}>
           <button
-            className=" md:hidden self-end mt-10 mb-20"
+            className="md:hidden self-end mt-10 mb-20"
             onClick={handleCloseMenu}
           >
             <CloseIcon />
@@ -113,22 +110,26 @@ const PrivateHeader = () => {
             <LogOutIcon className="w-6 cursor-pointer hover:opacity-80 hover:scale-110 ease-in-out duration-300" />
           </div>
           <Link
-            className="md:font-normal hover:text-sky-400 md:hidden hover:scale-[1.05] ease-in-out duration-300"
-            onClick={logout}
-          >
-            Cerrar sesión
-          </Link>
-          <Link
             to="/vender"
             className="md:bg-sky-400 md:text-white md:px-5 md:py-3 md:rounded-xl hover:text-sky-400 md:hover:text-white md:hover:bg-sky-500 hover:scale-[1.05] ease-in-out duration-300"
             onClick={handleCloseMenu}
           >
             Publicar venta
           </Link>
+          <Link
+            to="/"
+            className="md:font-normal hover:text-sky-400 md:hidden hover:scale-[1.05] ease-in-out duration-300"
+            onClick={logout}
+          >
+            Cerrar sesión
+          </Link>
         </nav>
       ) : (
         <Loader />
       )}
+            <button className="md:hidden" onClick={handleOpenMenu}>
+        <MenuIcon />
+      </button>
     </header>
   );
 };
