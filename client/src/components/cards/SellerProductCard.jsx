@@ -15,6 +15,11 @@ const SellerProductCard = ({ id, img, titulo, descripcion, precio }) => {
     const endpoint = `/users/${usuario.data.user_id}/ventas`;
     try {
       const { data: productList } = await axios.get(url + endpoint);
+      if(productList.length === 0)
+      {
+        setUserSells([])
+      }
+      else
       setUserSells(productList);
     } catch (error) {
       setUserSells([]);

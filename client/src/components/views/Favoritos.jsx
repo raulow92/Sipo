@@ -76,6 +76,13 @@ const Favoritos = () => {
   return (
     <div className="container mx-auto mt-6">
       <h2 className="text-center font-medium text-2xl mb-8">Favoritos</h2>
+      {(!favorites || favorites.length === 0) && loaded && (
+                <div className="bg-white rounded-lg shadow-md p-8 my-6 text-center w-full">
+                    <h2 className="font-bold text-2xl text-sky-400">
+                        No tienes favoritos aún.
+                    </h2>
+                </div>
+            )}
       {loaded ? (
         <div className="mx-6 lg:mx-16 mt-6 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {favorites.map(
