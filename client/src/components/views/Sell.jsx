@@ -8,7 +8,7 @@ import Context from "../../Context";
 
 const Sell = () => {
     const navigate = useNavigate();
-    const url = "http://localhost:3000";
+    const url = "https://sipoback.onrender.com";
     const { usuario } = useContext(Context);
 
     const [formData, setFormData] = useState({

@@ -12,7 +12,7 @@ const MisCompras = () => {
     setUserBuys,
   } = useContext(Context);
   const [loaded, setLoaded] = useState(false);
-  const url = "http://localhost:3000";
+  const url = "https://sipoback.onrender.com";
 
   const getData = async (data) => {
     const endpoint = `/buys/${data.user_id}`;

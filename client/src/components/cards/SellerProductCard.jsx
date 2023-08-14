@@ -9,7 +9,7 @@ const priceFormat = new Intl.NumberFormat("es-CL", {
 
 const SellerProductCard = ({ id, img, titulo, descripcion, precio }) => {
   const { usuario, setUserSells } = useContext(Context);
-  const url = "http://localhost:3000";
+  const url = "https://sipoback.onrender.com";
 
   const getData = async () => {
     const endpoint = `/users/${usuario.data.user_id}/ventas`;

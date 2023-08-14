@@ -6,7 +6,7 @@ import axios from "axios";
 const SellerCards = ({ id, region }) => {
   const [seller, setSeller] = useState();
   const [loaded, setLoaded] = useState(false);
-  const url = "http://localhost:3000";
+  const url = "https://sipoback.onrender.com";
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };

@@ -12,7 +12,7 @@ const priceFormat = new Intl.NumberFormat("es-CL", {
 });
 
 const ProductDetail = () => {
-    const url = "http://localhost:3000/";
+    const url = "https://sipoback.onrender.com";
     const [product, setProduct] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
@@ -22,7 +22,7 @@ const ProductDetail = () => {
 
     const handleBuy = async (e) => {
         e.preventDefault();
-        const endpoint = `buy`;
+        const endpoint = `/buy`;
         try {
             const { data: response } = await axios.post(url + endpoint, {
                 product_id: id,
@@ -36,7 +36,7 @@ const ProductDetail = () => {
 
     const getProduct = async () => {
         try {
-            const endpoint = `product/${id}`;
+            const endpoint = `/product/${id}`;
             const response = await axios.get(url + endpoint);
             const productData = response.data;
             setProduct(productData);
@@ -59,13 +59,13 @@ const ProductDetail = () => {
     };
 
     const getUserData = async () => {
-        const endpoint = "users";
+        const endpoint = "/users";
         const token = localStorage.getItem("token");
         try {
             const { data } = await axios.get(url + endpoint, {
                 headers: { Authorization: "Bearer " + token },
             });
-            const favEndpoint = `users/${data.user_id}/favorites`;
+            const favEndpoint = `/users/${data.user_id}/favorites`;
             const { data: favorites } = await axios.get(url + favEndpoint);
             const result = {
                 data,
@@ -78,7 +78,7 @@ const ProductDetail = () => {
     };
 
     const handleFavorite = async (id) => {
-        const endpoint = "favorites";
+        const endpoint = "/favorites";
         const userEndpoint = `/${usuario.data.user_id}/${id}`;
         try {
             const { data: userFavorites } = await axios.get(
