@@ -125,7 +125,7 @@ const PrivateHeader = () => {
           </Link>
         </nav>
       ) : (
-        <Loader />
+        <Loader className="hidden md:block lg:mr-12 w-10 h-10 text-gray-200 animate-spin dark:text-gray-400 fill-gray-300"/>
       )}
             <button className="md:hidden" onClick={handleOpenMenu}>
         <MenuIcon />
