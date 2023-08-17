@@ -3,21 +3,27 @@ import CartIcon from "@/components/icons/CartIcon";
 import HeartIcon from "@/components/icons/HeartIcon";
 import DollarIcon from "@/components/icons/DollarIcon";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import Context from "../../Context";
+import { useContext, useEffect } from "react";
+import Context from "../../Context"
+import Loader from "@/components/icons/Loader";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-
   const toDatos = () => navigate("/mis-datos");
   const toCompras = () => navigate("/mis-compras");
   const toFavoritos = () => navigate("/favoritos");
   const toVentas = () => navigate("/mis-ventas");
   const { usuario } = useContext(Context);
 
+  useEffect(() => {
+    !usuario && navigate("/");
+  }, []);
+
   return (
     <div className="container mx-auto mt-6 ">
       <h2 className="text-center font-medium text-2xl mb-8">Dashboard</h2>
+
+      {usuario ? 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mx-auto w-fit mb-8">
         <div
           onClick={toDatos}
@@ -59,6 +65,9 @@ const Dashboard = () => {
           <h2 className="mt-3 text-sky-400 font-bold text-lg">Mis Ventas</h2>
         </div>
       </div>
+      :
+      <Loader className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-400 fill-sky-400 mt-20" />
+      }
     </div>
   );
 };
