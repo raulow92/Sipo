@@ -10,8 +10,6 @@ app.use(cors());
 
 app.use("/", routes);
 
-
-
 if (process.env.NODE_ENV !== "test") {
   app.listen(PORT, console.log(`Servidor arriba en el puerto ${PORT}`));
 }
