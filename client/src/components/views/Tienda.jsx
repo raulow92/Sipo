@@ -21,7 +21,12 @@ const Tienda = () => {
     const endpoint = "/tienda";
     try {
       const { data: productList } = await axios.get(url + endpoint);
-      setProducts(productList);
+      const filteredProducts = productList.filter((product) => {
+        return (
+          product.user_id != usuario.data.user_id && product.vendido === false
+        );
+      });
+      setProducts(filteredProducts);
     } catch (error) {
       console.log(error);
     } finally {
@@ -45,8 +50,7 @@ const Tienda = () => {
       setUsuarioGlobal(result);
     } catch (error) {
       console.log(error);
-    }
-    finally{
+    } finally {
       getData();
     }
   };
@@ -81,8 +85,18 @@ const Tienda = () => {
     }
     try {
       const { data: productList } = await axios.get(url + endpoint);
-      setProducts(productList);
-      handleRegionChange();
+      if (!productList) {
+        setProducts([]);
+        handleRegionChange();
+      } else {
+        const filteredProducts = productList.filter((product) => {
+          return (
+            product.user_id != usuario.data.user_id && product.vendido === false
+          );
+        });
+        setProducts(filteredProducts);
+        handleRegionChange();
+      }
     } catch (error) {
       console.log(error);
     } finally {
@@ -128,10 +142,6 @@ const Tienda = () => {
       console.log(error);
     }
   };
-
-  const filteredProducts = products.filter((product) => {
-    return product.user_id != usuario.data.user_id && product.vendido === false;
-  });
 
   return (
     <div className="container mx-auto mt-6">
@@ -216,9 +226,16 @@ const Tienda = () => {
       <div className="mx-16 mt-8 font-medium text-lg">
         <p>Mostrando: {selectedRegion}</p>
       </div>
+      {products.length == 0 && loaded && (
+                <div className="bg-white rounded-lg shadow-md p-8 mx-auto my-6 text-center w-5/6">
+                <h2 className="font-bold text-xl text-sky-400">
+                        No existen productos para esta búsqueda
+                    </h2>
+                </div>
+            )}
       {loaded ? (
         <div className="mx-6 lg:mx-16 mt-6 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {filteredProducts.map(
+          {products.map(
             ({ product_id, image, titulo, descripcion, precio }) => (
               <ProductCard
                 id={product_id}

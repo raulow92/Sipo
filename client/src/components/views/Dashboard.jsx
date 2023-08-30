@@ -15,9 +15,9 @@ const Dashboard = () => {
   const toVentas = () => navigate("/mis-ventas");
   const { usuario } = useContext(Context);
 
-  useEffect(() => {
+/*   useEffect(() => {
     !usuario && navigate("/");
-  }, []);
+  }, []); */
 
   return (
     <div className="container mx-auto mt-6 ">
