@@ -17,13 +17,13 @@ const Tienda = () => {
   const [loaded, setLoaded] = useState(false);
   const { usuario, setUsuario: setUsuarioGlobal } = useContext(Context);
 
-  const getData = async () => {
+  const getData = async (data) => {
     const endpoint = "/tienda";
     try {
       const { data: productList } = await axios.get(url + endpoint);
       const filteredProducts = productList.filter((product) => {
         return (
-          product.user_id != usuario.data.user_id && product.vendido === false
+          product.user_id != data.user_id && product.vendido === false
         );
       });
       setProducts(filteredProducts);
@@ -48,10 +48,9 @@ const Tienda = () => {
         favorites,
       };
       setUsuarioGlobal(result);
+      getData(data);
     } catch (error) {
       console.log(error);
-    } finally {
-      getData();
     }
   };
 
